@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "Example_Knipper", "Microcontroller_Project\Example_Knipper.cproj", "{2285C48D-296E-43FD-A7B6-69885F64CFFD}"
 EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "Opdracht_Week1_B_2", "XC8Application1\Opdracht_Week1_B_2.cproj", "{DABACAB9-4BD5-44A2-B362-15960D7F46B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|AVR = Debug|AVR
@@ -12,9 +14,12 @@ Global
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{2285C48D-296E-43FD-A7B6-69885F64CFFD}.Debug|AVR.ActiveCfg = Debug|AVR
-		{2285C48D-296E-43FD-A7B6-69885F64CFFD}.Debug|AVR.Build.0 = Debug|AVR
 		{2285C48D-296E-43FD-A7B6-69885F64CFFD}.Release|AVR.ActiveCfg = Release|AVR
 		{2285C48D-296E-43FD-A7B6-69885F64CFFD}.Release|AVR.Build.0 = Release|AVR
+		{DABACAB9-4BD5-44A2-B362-15960D7F46B9}.Debug|AVR.ActiveCfg = Debug|AVR
+		{DABACAB9-4BD5-44A2-B362-15960D7F46B9}.Debug|AVR.Build.0 = Debug|AVR
+		{DABACAB9-4BD5-44A2-B362-15960D7F46B9}.Release|AVR.ActiveCfg = Release|AVR
+		{DABACAB9-4BD5-44A2-B362-15960D7F46B9}.Release|AVR.Build.0 = Release|AVR
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
