@@ -90,7 +90,7 @@ Disassembly of section .text:
 Disassembly of section .text:
 
 000000b6 <__bad_interrupt>:
-  b6:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+  b6:	0c 94 00 00 	jmp	0	; 0x0 <__TEXT_REGION_ORIGIN__>
 
 Disassembly of section .text.main:
 
@@ -114,6 +114,6 @@ Version :    	DMK, Initial code
   ae:	82 bb       	out	0x12, r24	; 18
   b0:	fb cf       	rjmp	.-10     	; 0xa8 <main+0x4>
 		}else{
-		PORTD = 0x00;					
+		PORTD = 0x00;			// Turn all lights off		
   b2:	12 ba       	out	0x12, r1	; 18
   b4:	f9 cf       	rjmp	.-14     	; 0xa8 <main+0x4>
