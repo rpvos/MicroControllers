@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Atmel Studio Solution File, Format Version 11.00
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "Example_Knipper", "Microcontroller_Project\Example_Knipper.cproj", "{2285C48D-296E-43FD-A7B6-69885F64CFFD}"
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "Example_Knipper", "Example_Knipper\Example_Knipper.cproj", "{2285C48D-296E-43FD-A7B6-69885F64CFFD}"
 EndProject
-Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "Opdracht_Week1_B_2", "XC8Application1\Opdracht_Week1_B_2.cproj", "{DABACAB9-4BD5-44A2-B362-15960D7F46B9}"
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "Opdracht_Week1_B_2", "Opdracht_Week1_B_2\Opdracht_Week1_B_2.cproj", "{DABACAB9-4BD5-44A2-B362-15960D7F46B9}"
 EndProject
-Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "Opdracht_Week1_B_3", "XC8Application2\Opdracht_Week1_B_3.cproj", "{467D0B72-B624-490A-BBAE-9E425DE9AADE}"
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "Opdracht_Week1_B_3", "Opdracht_Week1_B_3\Opdracht_Week1_B_3.cproj", "{467D0B72-B624-490A-BBAE-9E425DE9AADE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
