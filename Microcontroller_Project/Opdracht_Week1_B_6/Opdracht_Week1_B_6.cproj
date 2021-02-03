@@ -5,7 +5,7 @@
     <ProjectVersion>7.0</ProjectVersion>
     <ToolchainName>com.microchip.xc8</ToolchainName>
     <ProjectGuid>{ede587e1-aabb-4d38-908a-d748d9c2fa6b}</ProjectGuid>
-    <avrdevice>AT90CAN128</avrdevice>
+    <avrdevice>ATmega128</avrdevice>
     <avrdeviceseries>none</avrdeviceseries>
     <OutputType>Executable</OutputType>
     <Language>C</Language>
@@ -30,16 +30,30 @@
     <EraseKey />
     <AsfFrameworkConfig>
       <framework-data xmlns="">
-  <options />
-  <configurations />
-  <files />
-  <documentation help="" />
-  <offline-documentation help="" />
-  <dependencies>
-    <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.49.1" />
-  </dependencies>
-</framework-data>
+        <options />
+        <configurations />
+        <files />
+        <documentation help="" />
+        <offline-documentation help="" />
+        <dependencies>
+          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.49.1" />
+        </dependencies>
+      </framework-data>
     </AsfFrameworkConfig>
+    <avrtool>
+    </avrtool>
+    <avrtoolserialnumber />
+    <avrdeviceexpectedsignature>0x1E9781</avrdeviceexpectedsignature>
+    <custom>
+      <ToolOptions xmlns="">
+        <InterfaceProperties>
+        </InterfaceProperties>
+      </ToolOptions>
+      <ToolType xmlns="">custom</ToolType>
+      <ToolNumber xmlns="">
+      </ToolNumber>
+      <ToolName xmlns="">Custom Programming Tool</ToolName>
+    </custom>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
