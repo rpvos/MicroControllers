@@ -52,10 +52,12 @@ Version :    	DMK, Initial code
 	
 	while (1)
 	{
+		if (PINC & 0x01) {
 		PORTD = 0x80;			// Write 10000000b PORTD
-		wait( 500 );				
-		PORTD = 0x40;			// Write 01000000b PORTD
-		wait( 500 );				
+		}else{
+		PORTD = 0x00;			// Turn all lights off		
+		}			
+		
 	}
 
 	return 1;
