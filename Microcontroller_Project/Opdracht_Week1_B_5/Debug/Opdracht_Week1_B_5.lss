@@ -151,19 +151,19 @@ int main(void)
 	    DDRD = 0b11111111;			// All pins PORTD are set to output
   ba:	8f ef       	ldi	r24, 0xFF	; 255
   bc:	81 bb       	out	0x11, r24	; 17
-	    
-	    int var = 0;
+		// Boolean that contains when it is enabling more lights and when it is not
 	    int statement = 1;
+		// Lights array which lights to turn on at a given time
 	    int lights[0xff];
 	    
 	    for (int i = 0; i < 0xff; i++)
   be:	20 e0       	ldi	r18, 0x00	; 0
   c0:	30 e0       	ldi	r19, 0x00	; 0
-    
 	    
 	    DDRD = 0b11111111;			// All pins PORTD are set to output
 	    
 	    int var = 0;
+		// Boolean that contains when it is enabling more lights and when it is not
 	    int statement = 1;
   c2:	41 e0       	ldi	r20, 0x01	; 1
   c4:	50 e0       	ldi	r21, 0x00	; 0
@@ -175,7 +175,9 @@ int main(void)
 	    int var = 0;
   c6:	80 e0       	ldi	r24, 0x00	; 0
   c8:	90 e0       	ldi	r25, 0x00	; 0
+		// Boolean that contains when it is enabling more lights and when it is not
 	    int statement = 1;
+		// Lights array which lights to turn on at a given time
 	    int lights[0xff];
 	    
 	    for (int i = 0; i < 0xff; i++)
@@ -198,17 +200,19 @@ int main(void)
   e4:	51 05       	cpc	r21, r1
   e6:	69 f0       	breq	.+26     	; 0x102 <main+0x5e>
 		    {
+				// Add new light to the start
 			    var= var<<1;
   e8:	88 0f       	add	r24, r24
   ea:	99 1f       	adc	r25, r25
 			    var+=1;
   ec:	01 96       	adiw	r24, 0x01	; 1
 			    
+				// If all lights are on we go to subtract mode
 			    if (var==0xff){
   ee:	8f 3f       	cpi	r24, 0xFF	; 255
   f0:	91 05       	cpc	r25, r1
   f2:	89 f4       	brne	.+34     	; 0x116 <main+0x72>
-				    statement= !statement;
+				    statement = !statement;
   f4:	61 e0       	ldi	r22, 0x01	; 1
   f6:	45 2b       	or	r20, r21
   f8:	09 f0       	breq	.+2      	; 0xfc <main+0x58>
@@ -218,24 +222,27 @@ int main(void)
  100:	0a c0       	rjmp	.+20     	; 0x116 <main+0x72>
 			    }
 			    
-			    }else{
+			 }else{
+				 // Remove one light from the start
 			    var= var<<1;
  102:	88 0f       	add	r24, r24
  104:	99 1f       	adc	r25, r25
+				
+				// If the lights are all of we turn them back on slowly
 			    if (var==0)
  106:	00 97       	sbiw	r24, 0x00	; 0
  108:	31 f4       	brne	.+12     	; 0x116 <main+0x72>
 			    {
-				    statement= !statement;
+				    statement = !statement;
  10a:	61 e0       	ldi	r22, 0x01	; 1
  10c:	45 2b       	or	r20, r21
  10e:	09 f0       	breq	.+2      	; 0x112 <main+0x6e>
  110:	60 e0       	ldi	r22, 0x00	; 0
  112:	46 2f       	mov	r20, r22
  114:	50 e0       	ldi	r21, 0x00	; 0
-	    
-	    int var = 0;
+		// Boolean that contains when it is enabling more lights and when it is not
 	    int statement = 1;
+		// Lights array which lights to turn on at a given time
 	    int lights[0xff];
 	    
 	    for (int i = 0; i < 0xff; i++)
@@ -255,9 +262,9 @@ int main(void)
 			    var=0;
  126:	00 e0       	ldi	r16, 0x00	; 0
  128:	10 e0       	ldi	r17, 0x00	; 0
-	    }
 	    var = 0;
 	    
+		
 	    while (1)
 	    {
 		    wait(100);

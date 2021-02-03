@@ -34,33 +34,43 @@ int main(void)
 	    DDRD = 0b11111111;			// All pins PORTD are set to output
 	    
 	    int var = 0;
+		// Boolean that contains when it is enabling more lights and when it is not
 	    int statement = 1;
-	    int lights[];
+		// Lights array which lights to turn on at a given time
+	    int lights[0xff];
 	    
 	    for (int i = 0; i < 0xff; i++)
 	    {
 		    lights[i] = var;
 		    if (statement)
 		    {
+				// Add new light to the start
 			    var= var<<1;
 			    var+=1;
 			    
+				// If all lights are on we go to subtract mode
 			    if (var==0xff){
-				    statement= !statement;
+				    statement = !statement;
 			    }
 			    
-			    }else{
+			 }else{
+				 // Remove one light from the start
 			    var= var<<1;
+				
+				// If the lights are all of we turn them back on slowly
 			    if (var==0)
 			    {
-				    statement= !statement;
+				    statement = !statement;
 			    }
 		    }
 		    
 		    
 	    }
+		
+		// Counter to loop through all the lights
 	    var = 0;
 	    
+		
 	    while (1)
 	    {
 		    wait(100);
@@ -72,7 +82,6 @@ int main(void)
 		    {
 			    var=0;
 		    }
-		    
 		    
 	    }
 
