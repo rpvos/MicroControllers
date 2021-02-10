@@ -3,193 +3,218 @@ Opdracht_Week2_B_4.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000000  00800100  00800100  00000164  2**0
+  0 .data         00000000  00800100  0000013c  000001b0  2**0
                   ALLOC, LOAD, DATA
-  1 .text         000000a4  00000000  00000000  00000054  2**1
+  1 .text         000000ec  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .comment      0000002f  00000000  00000000  00000164  2**0
+  2 .comment      0000002f  00000000  00000000  000001b0  2**0
                   CONTENTS, READONLY
-  3 .debug_aranges 00000028  00000000  00000000  00000193  2**0
+  3 .debug_aranges 00000028  00000000  00000000  000001df  2**0
                   CONTENTS, READONLY, DEBUGGING
-  4 .debug_info   00000bca  00000000  00000000  000001bb  2**0
+  4 .debug_info   00000bf8  00000000  00000000  00000207  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_abbrev 00000859  00000000  00000000  00000d85  2**0
+  5 .debug_abbrev 00000864  00000000  00000000  00000dff  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_line   00000296  00000000  00000000  000015de  2**0
+  6 .debug_line   00000296  00000000  00000000  00001663  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_frame  00000034  00000000  00000000  00001874  2**2
+  7 .debug_frame  00000034  00000000  00000000  000018fc  2**2
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_str    0000027d  00000000  00000000  000018a8  2**0
+  8 .debug_str    0000027d  00000000  00000000  00001930  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_loc    000000a1  00000000  00000000  00001b25  2**0
+  9 .debug_loc    000000d8  00000000  00000000  00001bad  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_ranges 00000018  00000000  00000000  00001bc6  2**0
+ 10 .debug_ranges 00000018  00000000  00000000  00001c85  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .text         00000004  0000010c  0000010c  00000160  2**1
+ 11 .text         00000004  00000130  00000130  000001a4  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 12 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00001be0  2**2
+ 12 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00001ca0  2**2
                   CONTENTS, READONLY, DEBUGGING
- 13 .text.wait    0000001e  000000e0  000000e0  00000134  2**1
+ 13 .text.wait    0000001e  00000112  00000112  00000186  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 14 .text.main    00000034  000000ac  000000ac  00000100  2**1
+ 14 .text.main    00000026  000000ec  000000ec  00000160  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 15 .progmemx.data.LightShow 00000008  000000a4  000000a4  000000f8  2**0
-                  CONTENTS, ALLOC, LOAD, READONLY, PROGMEMX
- 16 .text.libgcc  0000000e  000000fe  000000fe  00000152  2**1
-                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 15 .data.LightShow 00000008  00800100  00000134  000001a8  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
 
 Disassembly of section .text:
 
 00000000 <__vectors>:
-   0:	0c 94 46 00 	jmp	0x8c	; 0x8c <__ctors_end>
-   4:	0c 94 86 00 	jmp	0x10c	; 0x10c <__bad_interrupt>
-   8:	0c 94 86 00 	jmp	0x10c	; 0x10c <__bad_interrupt>
-   c:	0c 94 86 00 	jmp	0x10c	; 0x10c <__bad_interrupt>
-  10:	0c 94 86 00 	jmp	0x10c	; 0x10c <__bad_interrupt>
-  14:	0c 94 86 00 	jmp	0x10c	; 0x10c <__bad_interrupt>
-  18:	0c 94 86 00 	jmp	0x10c	; 0x10c <__bad_interrupt>
-  1c:	0c 94 86 00 	jmp	0x10c	; 0x10c <__bad_interrupt>
-  20:	0c 94 86 00 	jmp	0x10c	; 0x10c <__bad_interrupt>
-  24:	0c 94 86 00 	jmp	0x10c	; 0x10c <__bad_interrupt>
-  28:	0c 94 86 00 	jmp	0x10c	; 0x10c <__bad_interrupt>
-  2c:	0c 94 86 00 	jmp	0x10c	; 0x10c <__bad_interrupt>
-  30:	0c 94 86 00 	jmp	0x10c	; 0x10c <__bad_interrupt>
-  34:	0c 94 86 00 	jmp	0x10c	; 0x10c <__bad_interrupt>
-  38:	0c 94 86 00 	jmp	0x10c	; 0x10c <__bad_interrupt>
-  3c:	0c 94 86 00 	jmp	0x10c	; 0x10c <__bad_interrupt>
-  40:	0c 94 86 00 	jmp	0x10c	; 0x10c <__bad_interrupt>
-  44:	0c 94 86 00 	jmp	0x10c	; 0x10c <__bad_interrupt>
-  48:	0c 94 86 00 	jmp	0x10c	; 0x10c <__bad_interrupt>
-  4c:	0c 94 86 00 	jmp	0x10c	; 0x10c <__bad_interrupt>
-  50:	0c 94 86 00 	jmp	0x10c	; 0x10c <__bad_interrupt>
-  54:	0c 94 86 00 	jmp	0x10c	; 0x10c <__bad_interrupt>
-  58:	0c 94 86 00 	jmp	0x10c	; 0x10c <__bad_interrupt>
-  5c:	0c 94 86 00 	jmp	0x10c	; 0x10c <__bad_interrupt>
-  60:	0c 94 86 00 	jmp	0x10c	; 0x10c <__bad_interrupt>
-  64:	0c 94 86 00 	jmp	0x10c	; 0x10c <__bad_interrupt>
-  68:	0c 94 86 00 	jmp	0x10c	; 0x10c <__bad_interrupt>
-  6c:	0c 94 86 00 	jmp	0x10c	; 0x10c <__bad_interrupt>
-  70:	0c 94 86 00 	jmp	0x10c	; 0x10c <__bad_interrupt>
-  74:	0c 94 86 00 	jmp	0x10c	; 0x10c <__bad_interrupt>
-  78:	0c 94 86 00 	jmp	0x10c	; 0x10c <__bad_interrupt>
-  7c:	0c 94 86 00 	jmp	0x10c	; 0x10c <__bad_interrupt>
-  80:	0c 94 86 00 	jmp	0x10c	; 0x10c <__bad_interrupt>
-  84:	0c 94 86 00 	jmp	0x10c	; 0x10c <__bad_interrupt>
-  88:	0c 94 86 00 	jmp	0x10c	; 0x10c <__bad_interrupt>
+   0:	0c 94 4a 00 	jmp	0x94	; 0x94 <__ctors_end>
+   4:	0c 94 98 00 	jmp	0x130	; 0x130 <__bad_interrupt>
+   8:	0c 94 98 00 	jmp	0x130	; 0x130 <__bad_interrupt>
+   c:	0c 94 98 00 	jmp	0x130	; 0x130 <__bad_interrupt>
+  10:	0c 94 98 00 	jmp	0x130	; 0x130 <__bad_interrupt>
+  14:	0c 94 98 00 	jmp	0x130	; 0x130 <__bad_interrupt>
+  18:	0c 94 98 00 	jmp	0x130	; 0x130 <__bad_interrupt>
+  1c:	0c 94 98 00 	jmp	0x130	; 0x130 <__bad_interrupt>
+  20:	0c 94 98 00 	jmp	0x130	; 0x130 <__bad_interrupt>
+  24:	0c 94 98 00 	jmp	0x130	; 0x130 <__bad_interrupt>
+  28:	0c 94 98 00 	jmp	0x130	; 0x130 <__bad_interrupt>
+  2c:	0c 94 98 00 	jmp	0x130	; 0x130 <__bad_interrupt>
+  30:	0c 94 98 00 	jmp	0x130	; 0x130 <__bad_interrupt>
+  34:	0c 94 98 00 	jmp	0x130	; 0x130 <__bad_interrupt>
+  38:	0c 94 98 00 	jmp	0x130	; 0x130 <__bad_interrupt>
+  3c:	0c 94 98 00 	jmp	0x130	; 0x130 <__bad_interrupt>
+  40:	0c 94 98 00 	jmp	0x130	; 0x130 <__bad_interrupt>
+  44:	0c 94 98 00 	jmp	0x130	; 0x130 <__bad_interrupt>
+  48:	0c 94 98 00 	jmp	0x130	; 0x130 <__bad_interrupt>
+  4c:	0c 94 98 00 	jmp	0x130	; 0x130 <__bad_interrupt>
+  50:	0c 94 98 00 	jmp	0x130	; 0x130 <__bad_interrupt>
+  54:	0c 94 98 00 	jmp	0x130	; 0x130 <__bad_interrupt>
+  58:	0c 94 98 00 	jmp	0x130	; 0x130 <__bad_interrupt>
+  5c:	0c 94 98 00 	jmp	0x130	; 0x130 <__bad_interrupt>
+  60:	0c 94 98 00 	jmp	0x130	; 0x130 <__bad_interrupt>
+  64:	0c 94 98 00 	jmp	0x130	; 0x130 <__bad_interrupt>
+  68:	0c 94 98 00 	jmp	0x130	; 0x130 <__bad_interrupt>
+  6c:	0c 94 98 00 	jmp	0x130	; 0x130 <__bad_interrupt>
+  70:	0c 94 98 00 	jmp	0x130	; 0x130 <__bad_interrupt>
+  74:	0c 94 98 00 	jmp	0x130	; 0x130 <__bad_interrupt>
+  78:	0c 94 98 00 	jmp	0x130	; 0x130 <__bad_interrupt>
+  7c:	0c 94 98 00 	jmp	0x130	; 0x130 <__bad_interrupt>
+  80:	0c 94 98 00 	jmp	0x130	; 0x130 <__bad_interrupt>
+  84:	0c 94 98 00 	jmp	0x130	; 0x130 <__bad_interrupt>
+  88:	0c 94 98 00 	jmp	0x130	; 0x130 <__bad_interrupt>
 
-0000008c <__ctors_end>:
-  8c:	11 24       	eor	r1, r1
-  8e:	1f be       	out	0x3f, r1	; 63
-  90:	cf ef       	ldi	r28, 0xFF	; 255
-  92:	d0 e1       	ldi	r29, 0x10	; 16
-  94:	de bf       	out	0x3e, r29	; 62
-  96:	cd bf       	out	0x3d, r28	; 61
-  98:	0e 94 56 00 	call	0xac	; 0xac <main>
-  9c:	0c 94 50 00 	jmp	0xa0	; 0xa0 <_exit>
+0000008c <.dinit>:
+  8c:	01 00       	.word	0x0001	; ????
+  8e:	01 08       	sbc	r0, r1
+  90:	00 01       	movw	r0, r0
+  92:	34 00       	.word	0x0034	; ????
 
-000000a0 <_exit>:
-  a0:	f8 94       	cli
+00000094 <__ctors_end>:
+  94:	11 24       	eor	r1, r1
+  96:	1f be       	out	0x3f, r1	; 63
+  98:	cf ef       	ldi	r28, 0xFF	; 255
+  9a:	d0 e1       	ldi	r29, 0x10	; 16
+  9c:	de bf       	out	0x3e, r29	; 62
+  9e:	cd bf       	out	0x3d, r28	; 61
 
-000000a2 <__stop_program>:
-  a2:	ff cf       	rjmp	.-2      	; 0xa2 <__stop_program>
+000000a0 <__do_copy_data>:
+  a0:	ec e8       	ldi	r30, 0x8C	; 140
+  a2:	f0 e0       	ldi	r31, 0x00	; 0
+  a4:	40 e0       	ldi	r20, 0x00	; 0
+  a6:	19 c0       	rjmp	.+50     	; 0xda <__do_clear_bss+0x8>
+  a8:	b7 91       	elpm	r27, Z+
+  aa:	a7 91       	elpm	r26, Z+
+  ac:	37 91       	elpm	r19, Z+
+  ae:	27 91       	elpm	r18, Z+
+  b0:	07 91       	elpm	r16, Z+
+  b2:	07 fd       	sbrc	r16, 7
+  b4:	0e c0       	rjmp	.+28     	; 0xd2 <__do_clear_bss>
+  b6:	97 91       	elpm	r25, Z+
+  b8:	87 91       	elpm	r24, Z+
+  ba:	ef 01       	movw	r28, r30
+  bc:	f9 2f       	mov	r31, r25
+  be:	e8 2f       	mov	r30, r24
+  c0:	0b bf       	out	0x3b, r16	; 59
+  c2:	07 90       	elpm	r0, Z+
+  c4:	0d 92       	st	X+, r0
+  c6:	a2 17       	cp	r26, r18
+  c8:	b3 07       	cpc	r27, r19
+  ca:	d9 f7       	brne	.-10     	; 0xc2 <__do_copy_data+0x22>
+  cc:	fe 01       	movw	r30, r28
+  ce:	1b be       	out	0x3b, r1	; 59
+  d0:	04 c0       	rjmp	.+8      	; 0xda <__do_clear_bss+0x8>
+
+000000d2 <__do_clear_bss>:
+  d2:	1d 92       	st	X+, r1
+  d4:	a2 17       	cp	r26, r18
+  d6:	b3 07       	cpc	r27, r19
+  d8:	e1 f7       	brne	.-8      	; 0xd2 <__do_clear_bss>
+  da:	e3 39       	cpi	r30, 0x93	; 147
+  dc:	f4 07       	cpc	r31, r20
+  de:	21 f7       	brne	.-56     	; 0xa8 <__do_copy_data+0x8>
+  e0:	0e 94 76 00 	call	0xec	; 0xec <_etext>
+  e4:	0c 94 74 00 	jmp	0xe8	; 0xe8 <_exit>
+
+000000e8 <_exit>:
+  e8:	f8 94       	cli
+
+000000ea <__stop_program>:
+  ea:	ff cf       	rjmp	.-2      	; 0xea <__stop_program>
 
 Disassembly of section .text:
 
-0000010c <__bad_interrupt>:
- 10c:	0c 94 00 00 	jmp	0	; 0x0 <__TEXT_REGION_ORIGIN__>
+00000130 <__bad_interrupt>:
+ 130:	0c 94 00 00 	jmp	0	; 0x0 <__TEXT_REGION_ORIGIN__>
 
 Disassembly of section .text.wait:
 
-000000e0 <wait>:
+00000112 <wait>:
 #include <avr/io.h>
 #include <util/delay.h>
 
 
 void wait( int ms ) {
 	for (int i=0; i<ms; i++) {
-  e0:	20 e0       	ldi	r18, 0x00	; 0
-  e2:	30 e0       	ldi	r19, 0x00	; 0
-  e4:	08 c0       	rjmp	.+16     	; 0xf6 <wait+0x16>
+ 112:	20 e0       	ldi	r18, 0x00	; 0
+ 114:	30 e0       	ldi	r19, 0x00	; 0
+ 116:	08 c0       	rjmp	.+16     	; 0x128 <wait+0x16>
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
-  e6:	ef ec       	ldi	r30, 0xCF	; 207
-  e8:	f7 e0       	ldi	r31, 0x07	; 7
-  ea:	31 97       	sbiw	r30, 0x01	; 1
-  ec:	f1 f7       	brne	.-4      	; 0xea <wait+0xa>
-  ee:	00 c0       	rjmp	.+0      	; 0xf0 <wait+0x10>
-  f0:	00 00       	nop
-  f2:	2f 5f       	subi	r18, 0xFF	; 255
-  f4:	3f 4f       	sbci	r19, 0xFF	; 255
-  f6:	28 17       	cp	r18, r24
-  f8:	39 07       	cpc	r19, r25
-  fa:	ac f3       	brlt	.-22     	; 0xe6 <wait+0x6>
+ 118:	ef ec       	ldi	r30, 0xCF	; 207
+ 11a:	f7 e0       	ldi	r31, 0x07	; 7
+ 11c:	31 97       	sbiw	r30, 0x01	; 1
+ 11e:	f1 f7       	brne	.-4      	; 0x11c <wait+0xa>
+ 120:	00 c0       	rjmp	.+0      	; 0x122 <wait+0x10>
+ 122:	00 00       	nop
+ 124:	2f 5f       	subi	r18, 0xFF	; 255
+ 126:	3f 4f       	sbci	r19, 0xFF	; 255
+ 128:	28 17       	cp	r18, r24
+ 12a:	39 07       	cpc	r19, r25
+ 12c:	ac f3       	brlt	.-22     	; 0x118 <wait+0x6>
 		_delay_ms( 1 );
 	}
 }
-  fc:	08 95       	ret
+ 12e:	08 95       	ret
 
 Disassembly of section .text.main:
 
-000000ac <main>:
-const unsigned char LightShow [] = {
-	a,b,g,e,d,c,g,f
-};
+000000ec <main>:
+	LetterToSegment LightShow[] = {
+		a,b,g,e,d,c,g,f
+		};
 
 int main( void ) {
 	DDRC = 0b11111111;
-  ac:	8f ef       	ldi	r24, 0xFF	; 255
-  ae:	84 bb       	out	0x14, r24	; 20
+  ec:	8f ef       	ldi	r24, 0xFF	; 255
+  ee:	84 bb       	out	0x14, r24	; 20
 	
 	while (1==1) {
 		int index = 0;
-  b0:	c0 e0       	ldi	r28, 0x00	; 0
-  b2:	d0 e0       	ldi	r29, 0x00	; 0
+  f0:	c0 e0       	ldi	r28, 0x00	; 0
+  f2:	d0 e0       	ldi	r29, 0x00	; 0
 		int n = sizeof(LightShow)/sizeof(LightShow[0]);
 		
 		while( index < n ) {
-  b4:	11 c0       	rjmp	.+34     	; 0xd8 <main+0x2c>
-			enum LetterToSegment segment;
-			segment = LightShow[index];
-  b6:	ce 01       	movw	r24, r28
-  b8:	0d 2e       	mov	r0, r29
-  ba:	00 0c       	add	r0, r0
-  bc:	aa 0b       	sbc	r26, r26
-  be:	8c 55       	subi	r24, 0x5C	; 92
-  c0:	9f 4f       	sbci	r25, 0xFF	; 255
-  c2:	af 4f       	sbci	r26, 0xFF	; 255
-  c4:	fc 01       	movw	r30, r24
-  c6:	5a 2f       	mov	r21, r26
-  c8:	0e 94 7f 00 	call	0xfe	; 0xfe <__xload_1>
-			PORTC = segment;
-  cc:	65 bb       	out	0x15, r22	; 21
+  f4:	0a c0       	rjmp	.+20     	; 0x10a <main+0x1e>
+			char lights = 0x00;
+			LetterToSegment light = LightShow[index];
+  f6:	fe 01       	movw	r30, r28
+  f8:	e0 50       	subi	r30, 0x00	; 0
+  fa:	ff 4f       	sbci	r31, 0xFF	; 255
+  fc:	80 81       	ld	r24, Z
+				lights ^= light;
+			
+			PORTC = lights;
+  fe:	85 bb       	out	0x15, r24	; 21
 			wait(250);
-  ce:	8a ef       	ldi	r24, 0xFA	; 250
-  d0:	90 e0       	ldi	r25, 0x00	; 0
-  d2:	0e 94 70 00 	call	0xe0	; 0xe0 <wait>
+ 100:	8a ef       	ldi	r24, 0xFA	; 250
+ 102:	90 e0       	ldi	r25, 0x00	; 0
+ 104:	0e 94 89 00 	call	0x112	; 0x112 <wait>
 			index++;
-  d6:	21 96       	adiw	r28, 0x01	; 1
+ 108:	21 96       	adiw	r28, 0x01	; 1
 	
 	while (1==1) {
 		int index = 0;
 		int n = sizeof(LightShow)/sizeof(LightShow[0]);
 		
 		while( index < n ) {
-  d8:	c8 30       	cpi	r28, 0x08	; 8
-  da:	d1 05       	cpc	r29, r1
-  dc:	64 f3       	brlt	.-40     	; 0xb6 <main+0xa>
-  de:	e8 cf       	rjmp	.-48     	; 0xb0 <main+0x4>
-
-Disassembly of section .text.libgcc:
-
-000000fe <__xload_1>:
-  fe:	57 fd       	sbrc	r21, 7
- 100:	03 c0       	rjmp	.+6      	; 0x108 <__xload_1+0xa>
- 102:	5b bf       	out	0x3b, r21	; 59
- 104:	67 91       	elpm	r22, Z+
- 106:	08 95       	ret
- 108:	60 81       	ld	r22, Z
- 10a:	08 95       	ret
+ 10a:	c8 30       	cpi	r28, 0x08	; 8
+ 10c:	d1 05       	cpc	r29, r1
+ 10e:	9c f3       	brlt	.-26     	; 0xf6 <main+0xa>
+ 110:	ef cf       	rjmp	.-34     	; 0xf0 <main+0x4>
