@@ -58,9 +58,9 @@ main.d
 C_DEPS_AS_ARGS +=  \
 main.d
 
-OUTPUT_FILE_PATH +=Opdracht_Week1_B_6.elf
+OUTPUT_FILE_PATH +=Opdracht_Week1_B_7.elf
 
-OUTPUT_FILE_PATH_AS_ARGS +=Opdracht_Week1_B_6.elf
+OUTPUT_FILE_PATH_AS_ARGS +=Opdracht_Week1_B_7.elf
 
 ADDITIONAL_DEPENDENCIES:=
 
@@ -75,7 +75,7 @@ LINKER_SCRIPT_DEP+=
 ./main.o: .././main.c
 	@echo Building file: $<
 	@echo Invoking: XC8 C Compiler : 2.31
-	$(QUOTE)C:\Program Files\Microchip\xc8\v2.31\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega128  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega128__ -DDEBUG  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files\Microchip\xc8\v2.31\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega128  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\xc8"  -c -x c -mext=cci -D__ATmega128__  -O0 -ffunction-sections -fdata-sections -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
@@ -105,11 +105,11 @@ all: $(OUTPUT_FILE_PATH) $(ADDITIONAL_DEPENDENCIES)
 $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER_SCRIPT_DEP)
 	@echo Building target: $@
 	@echo Invoking:  XC8 C Linker : 2.31
-	$(QUOTE)C:\Program Files\Microchip\xc8\v2.31\bin\xc8-cc.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -mcpu=ATmega128  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\xc8"  -Wl,-Map="Opdracht_Week1_B_6.map" -funsigned-char -funsigned-bitfields -Wl,--start-group -Wl,-lm  -Wl,--end-group -Wl,--gc-sections -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums --memorysummary,memoryfile.xml  
+	$(QUOTE)C:\Program Files\Microchip\xc8\v2.31\bin\xc8-cc.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -mcpu=ATmega128  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\xc8"  -Wl,-Map="Opdracht_Week1_B_7.map" -Wl,--start-group  -Wl,--end-group -Wl,--gc-sections -O0 -ffunction-sections -fdata-sections --memorysummary,memoryfile.xml  
 	@echo Finished building target: $@
-	"C:\Program Files\Microchip\xc8\v2.31\bin\avr-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures  "Opdracht_Week1_B_6.elf" "Opdracht_Week1_B_6.hex"
-	"C:\Program Files\Microchip\xc8\v2.31\bin\avr-objcopy.exe" -j .eeprom --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0 --no-change-warnings -O ihex "Opdracht_Week1_B_6.elf" "Opdracht_Week1_B_6.eep" || exit 0
-	"C:\Program Files\Microchip\xc8\v2.31\bin\avr-objdump.exe" -h -S "Opdracht_Week1_B_6.elf" > "Opdracht_Week1_B_6.lss"
+	"C:\Program Files\Microchip\xc8\v2.31\bin\avr-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures  "Opdracht_Week1_B_7.elf" "Opdracht_Week1_B_7.hex"
+	"C:\Program Files\Microchip\xc8\v2.31\bin\avr-objcopy.exe" -j .eeprom --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0 --no-change-warnings -O ihex "Opdracht_Week1_B_7.elf" "Opdracht_Week1_B_7.eep" || exit 0
+	"C:\Program Files\Microchip\xc8\v2.31\bin\avr-objdump.exe" -h -S "Opdracht_Week1_B_7.elf" > "Opdracht_Week1_B_7.lss"
 	
 	
 
@@ -121,5 +121,5 @@ $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER
 clean:
 	-$(RM) $(OBJS_AS_ARGS) $(EXECUTABLES)  
 	-$(RM) $(C_DEPS_AS_ARGS)   
-	rm -rf "Opdracht_Week1_B_6.elf" "Opdracht_Week1_B_6.hex" "Opdracht_Week1_B_6.eep" "Opdracht_Week1_B_6.map" "Opdracht_Week1_B_6.usersignatures" "Opdracht_Week1_B_6.a"  "Opdracht_Week1_B_6.lss"
+	rm -rf "Opdracht_Week1_B_7.elf" "Opdracht_Week1_B_7.hex" "Opdracht_Week1_B_7.eep" "Opdracht_Week1_B_7.map" "Opdracht_Week1_B_7.usersignatures" "Opdracht_Week1_B_7.a"  "Opdracht_Week1_B_7.lss"
 	

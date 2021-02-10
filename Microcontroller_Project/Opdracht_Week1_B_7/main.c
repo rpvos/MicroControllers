@@ -5,10 +5,20 @@
  *  Author: Dave-
  */ 
 
-#include <xc.h>
+#define F_CPU 8e6
+
+#include <avr/io.h>
+#include <util/delay.h>
 
 int maxCount = 7;
 int count = 0;
+
+void wait( int ms ){
+	for (int i=0; i<ms; i++)
+	{
+		_delay_ms( 1 );		// library function (max 30 ms at 8MHz)
+	}
+}
 
 void charlieLoop() {
 
@@ -22,6 +32,25 @@ void charlieLoop() {
 	wait(1000);
 	if (count > maxCount) count = 0;
 }
+
+enum PinMode{
+	INPUT = 0,
+	OUTPUT = 1
+};
+
+enum VoltageMode{
+	HIGH = 1,
+	LOW = 0
+};
+
+void pinMode(int pin,enum PinMode pinmode){
+	DDRD = DDRD ^ (pinmode<<pin);
+}
+
+void digitalWrite(int pin, enum VoltageMode pinmode){
+	PORTD = PORTD ^ (pinmode<<pin);
+}
+
 
 void setCharliePlexingLed (int lednr){
 
@@ -83,7 +112,6 @@ void setCharliePlexingLed (int lednr){
 			break;
 		}
 	}
-}
 
 int main(void)
 {
