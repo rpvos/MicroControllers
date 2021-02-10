@@ -33,22 +33,22 @@ void charlieLoop() {
 	if (count > maxCount) count = 0;
 }
 
-enum PinMode{
+enum PinMode{ //Enum for the pinmodes.
 	INPUT = 0,
 	OUTPUT = 1
 };
 
-enum VoltageMode{
+enum VoltageMode{ //enum for the Voltages.
 	HIGH = 1,
 	LOW = 0
-};
+};		
 
 void pinMode(int pin,enum PinMode pinmode){
-	DDRD = DDRD ^ (pinmode<<pin);
+	DDRD = DDRD ^ (pinmode<<pin);		// set pin to pinmode value.
 }
 
 void digitalWrite(int pin, enum VoltageMode pinmode){
-	PORTD = PORTD ^ (pinmode<<pin);
+	PORTD = PORTD ^ (pinmode<<pin);		// set pin to pinmode value.
 }
 
 
@@ -117,8 +117,6 @@ int main(void)
 {
     while(1)
     {
-		charlieLoop();
-        //TODO:: Please write your application code 
-		
+		charlieLoop(); //run program.		
     }
 }
