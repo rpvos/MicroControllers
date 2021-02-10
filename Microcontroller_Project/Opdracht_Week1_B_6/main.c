@@ -58,18 +58,16 @@ Version :    	DMK, Initial code
 		}
 		if (speed)
 		{
-			PORTD = 0x80;
+			PORTD = 0x80;			// Turn light 7 on.
 			wait(250);
 			PORTD = 0x00;			// Turn all lights off
 	
 		}else{
-			PORTD = 0x80;
+			PORTD = 0x80;			// Turn light 7 on.
 			wait(1000);
-			PORTD = 0x00;
+			PORTD = 0x00;			// Turn all lights off
 		}
-		
-			
-					// Write 10000000b PORTD		
+					
 	}
 
 	return 1;
