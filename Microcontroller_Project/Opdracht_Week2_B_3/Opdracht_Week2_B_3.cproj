@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>7.0</ProjectVersion>
     <ToolchainName>com.microchip.xc8</ToolchainName>
-    <ProjectGuid>2285C48D-296E-43FD-A7B6-69885F64CFFD</ProjectGuid>
+    <ProjectGuid>{ae9be53c-df11-407f-ae0b-109a26b2f2b8}</ProjectGuid>
     <avrdevice>ATmega128</avrdevice>
     <avrdeviceseries>none</avrdeviceseries>
     <OutputType>Executable</OutputType>
@@ -15,6 +15,44 @@
     <AssemblyName>Opdracht_Week2_B_3</AssemblyName>
     <Name>Opdracht_Week2_B_3</Name>
     <RootNamespace>Opdracht_Week2_B_3</RootNamespace>
+    <ToolchainFlavour>XC8_2.31</ToolchainFlavour>
+    <KeepTimersRunning>true</KeepTimersRunning>
+    <OverrideVtor>false</OverrideVtor>
+    <CacheFlash>true</CacheFlash>
+    <ProgFlashFromRam>true</ProgFlashFromRam>
+    <RamSnippetAddress>0x20000000</RamSnippetAddress>
+    <UncachedRange />
+    <preserveEEPROM>true</preserveEEPROM>
+    <OverrideVtorValue>exception_table</OverrideVtorValue>
+    <BootSegment>2</BootSegment>
+    <ResetRule>0</ResetRule>
+    <eraseonlaunchrule>0</eraseonlaunchrule>
+    <EraseKey />
+    <AsfFrameworkConfig>
+      <framework-data xmlns="">
+  <options />
+  <configurations />
+  <files />
+  <documentation help="" />
+  <offline-documentation help="" />
+  <dependencies>
+    <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.49.1" />
+  </dependencies>
+</framework-data>
+    </AsfFrameworkConfig>
+    <avrtool>com.atmel.avrdbg.tool.simulator</avrtool>
+    <avrtoolserialnumber />
+    <avrdeviceexpectedsignature>0x1E9702</avrdeviceexpectedsignature>
+    <com_atmel_avrdbg_tool_simulator>
+      <ToolOptions xmlns="">
+        <InterfaceProperties>
+        </InterfaceProperties>
+      </ToolOptions>
+      <ToolType xmlns="">com.atmel.avrdbg.tool.simulator</ToolType>
+      <ToolNumber xmlns="">
+      </ToolNumber>
+      <ToolName xmlns="">Simulator</ToolName>
+    </com_atmel_avrdbg_tool_simulator>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings />
