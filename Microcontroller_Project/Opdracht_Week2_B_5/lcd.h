@@ -9,4 +9,6 @@ void init();
 
 void display_text(char *str);
 
+void clear_display();
+
 void set_cursor(int position);

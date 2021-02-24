@@ -11,63 +11,97 @@
 #include <util/delay.h>
 #include <avr/interrupt.h>
 
-	// A6 = E
-#define  E 0x20;
-	// A4 = RS
-#define  RS 0x08;
-	// D4/7 = data pins
+
+#define LCD_E 	6  // RA6 UNI-6
+#define LCD_RS	4  // RA4 UNI-6
 	
+void lcd_flush();
+void clear_display();
+void lcd_write_command(unsigned char byte);
+void lcd_write_data(unsigned char byte);
+void set_cursor(int position);
+void display_text(char *str);
+void init();
+
 
 void lcd_flush(void) {
-	PORTA |= E;				// pin high but keep all other values
+	PORTA |= (1<<LCD_E);	// E high
 	_delay_ms(1);			
-	PORTA &= ~E;  			// pin low but keep all other values
-	_delay_ms(1);			
+	PORTA &= ~(1<<LCD_E);  	// E low
+	_delay_ms(1);					
 }
 
-void lcd_write_char(unsigned char byte) {
-	// First part
-	PORTC = byte;
-	PORTA = RS;
+void clear_display() {
+	lcd_write_command (0x01);						//Leeg display
 	lcd_flush();
-
-	// Second part
-	PORTC = (byte<<4);
-	PORTA = RS;
+	lcd_write_command (0x80);	//Cursor terug naar start
 	lcd_flush();
 }
 
-void init(void) {
-	// Set all the needed pins to output and set them low
+void init() {
+	// PORTC output mode and all low (also E and RS pin)
 	DDRD = 0xFF;
 	DDRA = 0xFF;
-	PORTD = 0x00;
+	PORTC = 0x00;
 	PORTA = 0x00;
+	//PORTA = 0xFF;
 
-	// Step 2 set the lcd to (4-bit interface, 1 line, 5*7 Pixels)
-	PORTD = 0x20;
+	// Step 2 (table 12)
+	PORTC = 0x20;	// function set
 	lcd_flush();
 
-	// Step 3 set display mode to 0x06
-	PORTC = 0x00;   
+	// Step 3 (table 12)
+	PORTC = 0x20;   // function set
+	lcd_flush();
+	PORTC = 0x80;
+	lcd_flush();
+
+	// Step 4 (table 12)
+	PORTC = 0x00;   // Display on/off control
+	lcd_flush();
+	PORTC = 0xF0;
+	lcd_flush();
+
+	// Step 4 (table 12)
+	PORTC = 0x00;   // Entry mode set
 	lcd_flush();
 	PORTC = 0x60;
 	lcd_flush();
-
-	// Step 4 Set cursor and display on
-	PORTC = 0x00;   
-	lcd_flush();
-	PORTC = 0xF0;
-	lcd_flush();	
 }
+
+
 
 void display_text(char *str){
 	for(;*str; str++){
-		lcd_write_char(*str);
+		lcd_write_data(*str);
 	}
 }
 
+void lcd_write_command(unsigned char byte) {
+	// First nibble.
+	PORTC = byte;
+	PORTA &= ~(1<<LCD_RS);
+	lcd_flush();
+
+	// Second nibble
+	PORTC = (byte<<4);
+	PORTA &= ~(1<<LCD_RS);
+	lcd_flush();
+}
+
+void lcd_write_data(unsigned char byte) {
+	// First nibble.
+	PORTC = byte;
+	PORTA |= (1<<LCD_RS);
+	lcd_flush();
+
+	// Second nibble
+	PORTC = (byte<<4);
+	PORTA |= (1<<LCD_RS);
+	lcd_flush();
+}
+
 void set_cursor(int position){
-	
+	lcd_write_command(128+position);
 }
 
