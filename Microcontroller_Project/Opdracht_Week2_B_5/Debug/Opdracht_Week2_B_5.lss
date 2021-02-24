@@ -3,91 +3,95 @@ Opdracht_Week2_B_5.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000000  00800100  00800100  00000268  2**0
+  0 .data         00000000  00800100  00800100  000002ee  2**0
                   ALLOC, LOAD, DATA
   1 .text         000000a4  00000000  00000000  00000054  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .comment      0000002f  00000000  00000000  00000268  2**0
+  2 .comment      0000002f  00000000  00000000  000002ee  2**0
                   CONTENTS, READONLY
-  3 .debug_aranges 00000078  00000000  00000000  00000297  2**0
+  3 .debug_aranges 00000078  00000000  00000000  0000031d  2**0
                   CONTENTS, READONLY, DEBUGGING
-  4 .debug_info   00001119  00000000  00000000  0000030f  2**0
+  4 .debug_info   0000130e  00000000  00000000  00000395  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_abbrev 000009d4  00000000  00000000  00001428  2**0
+  5 .debug_abbrev 00000a51  00000000  00000000  000016a3  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_line   000004f4  00000000  00000000  00001dfc  2**0
+  6 .debug_line   0000055a  00000000  00000000  000020f4  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_frame  000000ec  00000000  00000000  000022f0  2**2
+  7 .debug_frame  000000ec  00000000  00000000  00002650  2**2
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_str    00000298  00000000  00000000  000023dc  2**0
+  8 .debug_str    000002b1  00000000  00000000  0000273c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_loc    00000279  00000000  00000000  00002674  2**0
+  9 .debug_loc    000003b4  00000000  00000000  000029ed  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_ranges 00000058  00000000  00000000  000028ed  2**0
+ 10 .debug_ranges 00000058  00000000  00000000  00002da1  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .text         00000004  00000210  00000210  00000264  2**1
+ 11 .text         00000004  00000296  00000296  000002ea  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 12 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00002948  2**2
+ 12 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00002dfc  2**2
                   CONTENTS, READONLY, DEBUGGING
- 13 .text.lcd_flush 00000026  00000138  00000138  0000018c  2**1
+ 13 .text.lcd_flush 00000026  00000198  00000198  000001ec  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 14 .text.init    00000042  000000f6  000000f6  0000014a  2**1
+ 14 .text.init    00000046  0000011e  0000011e  00000172  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 15 .text.lcd_write_command 00000024  0000015e  0000015e  000001b2  2**1
+ 15 .text.lcd_write_command 00000024  000001be  000001be  00000212  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 16 .text.clear_display 00000016  000001fa  000001fa  0000024e  2**1
+ 16 .text.clear_display 0000001a  00000244  00000244  00000298  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 17 .text.lcd_write_data 00000024  00000182  00000182  000001d6  2**1
+ 17 .text.lcd_write_data 00000024  000001e2  000001e2  00000236  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 18 .text.display_text 0000001a  000001e0  000001e0  00000234  2**1
+ 18 .text.display_text 0000001a  0000025e  0000025e  000002b2  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 19 .text.wait    0000001e  000001a6  000001a6  000001fa  2**1
+ 19 .text.set_cursor 00000008  0000028e  0000028e  000002e2  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 20 .progmemx.data 00000006  000000a4  000000a4  000000f8  2**0
-                  CONTENTS, ALLOC, LOAD, READONLY, PROGMEMX
- 21 .text.main    0000004c  000000aa  000000aa  000000fe  2**1
+ 20 .text.wait    0000001e  00000226  00000226  0000027a  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 22 .text.libgcc  0000001c  000001c4  000001c4  00000218  2**1
+ 21 .text.main    0000007a  000000a4  000000a4  000000f8  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 22 .text.avrlibc 00000016  00000278  00000278  000002cc  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 23 .text.avrlibc 00000034  00000164  00000164  000001b8  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 24 .text.avrlibc 00000020  00000206  00000206  0000025a  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
 
 Disassembly of section .text:
 
 00000000 <__vectors>:
    0:	0c 94 46 00 	jmp	0x8c	; 0x8c <__ctors_end>
-   4:	0c 94 08 01 	jmp	0x210	; 0x210 <__bad_interrupt>
-   8:	0c 94 08 01 	jmp	0x210	; 0x210 <__bad_interrupt>
-   c:	0c 94 08 01 	jmp	0x210	; 0x210 <__bad_interrupt>
-  10:	0c 94 08 01 	jmp	0x210	; 0x210 <__bad_interrupt>
-  14:	0c 94 08 01 	jmp	0x210	; 0x210 <__bad_interrupt>
-  18:	0c 94 08 01 	jmp	0x210	; 0x210 <__bad_interrupt>
-  1c:	0c 94 08 01 	jmp	0x210	; 0x210 <__bad_interrupt>
-  20:	0c 94 08 01 	jmp	0x210	; 0x210 <__bad_interrupt>
-  24:	0c 94 08 01 	jmp	0x210	; 0x210 <__bad_interrupt>
-  28:	0c 94 08 01 	jmp	0x210	; 0x210 <__bad_interrupt>
-  2c:	0c 94 08 01 	jmp	0x210	; 0x210 <__bad_interrupt>
-  30:	0c 94 08 01 	jmp	0x210	; 0x210 <__bad_interrupt>
-  34:	0c 94 08 01 	jmp	0x210	; 0x210 <__bad_interrupt>
-  38:	0c 94 08 01 	jmp	0x210	; 0x210 <__bad_interrupt>
-  3c:	0c 94 08 01 	jmp	0x210	; 0x210 <__bad_interrupt>
-  40:	0c 94 08 01 	jmp	0x210	; 0x210 <__bad_interrupt>
-  44:	0c 94 08 01 	jmp	0x210	; 0x210 <__bad_interrupt>
-  48:	0c 94 08 01 	jmp	0x210	; 0x210 <__bad_interrupt>
-  4c:	0c 94 08 01 	jmp	0x210	; 0x210 <__bad_interrupt>
-  50:	0c 94 08 01 	jmp	0x210	; 0x210 <__bad_interrupt>
-  54:	0c 94 08 01 	jmp	0x210	; 0x210 <__bad_interrupt>
-  58:	0c 94 08 01 	jmp	0x210	; 0x210 <__bad_interrupt>
-  5c:	0c 94 08 01 	jmp	0x210	; 0x210 <__bad_interrupt>
-  60:	0c 94 08 01 	jmp	0x210	; 0x210 <__bad_interrupt>
-  64:	0c 94 08 01 	jmp	0x210	; 0x210 <__bad_interrupt>
-  68:	0c 94 08 01 	jmp	0x210	; 0x210 <__bad_interrupt>
-  6c:	0c 94 08 01 	jmp	0x210	; 0x210 <__bad_interrupt>
-  70:	0c 94 08 01 	jmp	0x210	; 0x210 <__bad_interrupt>
-  74:	0c 94 08 01 	jmp	0x210	; 0x210 <__bad_interrupt>
-  78:	0c 94 08 01 	jmp	0x210	; 0x210 <__bad_interrupt>
-  7c:	0c 94 08 01 	jmp	0x210	; 0x210 <__bad_interrupt>
-  80:	0c 94 08 01 	jmp	0x210	; 0x210 <__bad_interrupt>
-  84:	0c 94 08 01 	jmp	0x210	; 0x210 <__bad_interrupt>
-  88:	0c 94 08 01 	jmp	0x210	; 0x210 <__bad_interrupt>
+   4:	0c 94 4b 01 	jmp	0x296	; 0x296 <__bad_interrupt>
+   8:	0c 94 4b 01 	jmp	0x296	; 0x296 <__bad_interrupt>
+   c:	0c 94 4b 01 	jmp	0x296	; 0x296 <__bad_interrupt>
+  10:	0c 94 4b 01 	jmp	0x296	; 0x296 <__bad_interrupt>
+  14:	0c 94 4b 01 	jmp	0x296	; 0x296 <__bad_interrupt>
+  18:	0c 94 4b 01 	jmp	0x296	; 0x296 <__bad_interrupt>
+  1c:	0c 94 4b 01 	jmp	0x296	; 0x296 <__bad_interrupt>
+  20:	0c 94 4b 01 	jmp	0x296	; 0x296 <__bad_interrupt>
+  24:	0c 94 4b 01 	jmp	0x296	; 0x296 <__bad_interrupt>
+  28:	0c 94 4b 01 	jmp	0x296	; 0x296 <__bad_interrupt>
+  2c:	0c 94 4b 01 	jmp	0x296	; 0x296 <__bad_interrupt>
+  30:	0c 94 4b 01 	jmp	0x296	; 0x296 <__bad_interrupt>
+  34:	0c 94 4b 01 	jmp	0x296	; 0x296 <__bad_interrupt>
+  38:	0c 94 4b 01 	jmp	0x296	; 0x296 <__bad_interrupt>
+  3c:	0c 94 4b 01 	jmp	0x296	; 0x296 <__bad_interrupt>
+  40:	0c 94 4b 01 	jmp	0x296	; 0x296 <__bad_interrupt>
+  44:	0c 94 4b 01 	jmp	0x296	; 0x296 <__bad_interrupt>
+  48:	0c 94 4b 01 	jmp	0x296	; 0x296 <__bad_interrupt>
+  4c:	0c 94 4b 01 	jmp	0x296	; 0x296 <__bad_interrupt>
+  50:	0c 94 4b 01 	jmp	0x296	; 0x296 <__bad_interrupt>
+  54:	0c 94 4b 01 	jmp	0x296	; 0x296 <__bad_interrupt>
+  58:	0c 94 4b 01 	jmp	0x296	; 0x296 <__bad_interrupt>
+  5c:	0c 94 4b 01 	jmp	0x296	; 0x296 <__bad_interrupt>
+  60:	0c 94 4b 01 	jmp	0x296	; 0x296 <__bad_interrupt>
+  64:	0c 94 4b 01 	jmp	0x296	; 0x296 <__bad_interrupt>
+  68:	0c 94 4b 01 	jmp	0x296	; 0x296 <__bad_interrupt>
+  6c:	0c 94 4b 01 	jmp	0x296	; 0x296 <__bad_interrupt>
+  70:	0c 94 4b 01 	jmp	0x296	; 0x296 <__bad_interrupt>
+  74:	0c 94 4b 01 	jmp	0x296	; 0x296 <__bad_interrupt>
+  78:	0c 94 4b 01 	jmp	0x296	; 0x296 <__bad_interrupt>
+  7c:	0c 94 4b 01 	jmp	0x296	; 0x296 <__bad_interrupt>
+  80:	0c 94 4b 01 	jmp	0x296	; 0x296 <__bad_interrupt>
+  84:	0c 94 4b 01 	jmp	0x296	; 0x296 <__bad_interrupt>
+  88:	0c 94 4b 01 	jmp	0x296	; 0x296 <__bad_interrupt>
 
 0000008c <__ctors_end>:
   8c:	11 24       	eor	r1, r1
@@ -96,7 +100,7 @@ Disassembly of section .text:
   92:	d0 e1       	ldi	r29, 0x10	; 16
   94:	de bf       	out	0x3e, r29	; 62
   96:	cd bf       	out	0x3d, r28	; 61
-  98:	0e 94 55 00 	call	0xaa	; 0xaa <main>
+  98:	0e 94 52 00 	call	0xa4	; 0xa4 <_etext>
   9c:	0c 94 50 00 	jmp	0xa0	; 0xa0 <_exit>
 
 000000a0 <_exit>:
@@ -107,333 +111,439 @@ Disassembly of section .text:
 
 Disassembly of section .text:
 
-00000210 <__bad_interrupt>:
- 210:	0c 94 00 00 	jmp	0	; 0x0 <__TEXT_REGION_ORIGIN__>
+00000296 <__bad_interrupt>:
+ 296:	0c 94 00 00 	jmp	0	; 0x0 <__TEXT_REGION_ORIGIN__>
 
 Disassembly of section .text.lcd_flush:
 
-00000138 <lcd_flush>:
+00000198 <lcd_flush>:
 void display_text(char *str);
-void init();
+void init(void);
 
 
 void lcd_flush(void) {
 	PORTA |= (1<<LCD_E);	// E high
- 138:	8b b3       	in	r24, 0x1b	; 27
- 13a:	80 64       	ori	r24, 0x40	; 64
- 13c:	8b bb       	out	0x1b, r24	; 27
+ 198:	8b b3       	in	r24, 0x1b	; 27
+ 19a:	80 64       	ori	r24, 0x40	; 64
+ 19c:	8b bb       	out	0x1b, r24	; 27
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
- 13e:	8f ec       	ldi	r24, 0xCF	; 207
- 140:	97 e0       	ldi	r25, 0x07	; 7
- 142:	01 97       	sbiw	r24, 0x01	; 1
- 144:	f1 f7       	brne	.-4      	; 0x142 <lcd_flush+0xa>
- 146:	00 c0       	rjmp	.+0      	; 0x148 <lcd_flush+0x10>
- 148:	00 00       	nop
+ 19e:	8f ec       	ldi	r24, 0xCF	; 207
+ 1a0:	97 e0       	ldi	r25, 0x07	; 7
+ 1a2:	01 97       	sbiw	r24, 0x01	; 1
+ 1a4:	f1 f7       	brne	.-4      	; 0x1a2 <lcd_flush+0xa>
+ 1a6:	00 c0       	rjmp	.+0      	; 0x1a8 <lcd_flush+0x10>
+ 1a8:	00 00       	nop
 	_delay_ms(1);			
 	PORTA &= ~(1<<LCD_E);  	// E low
- 14a:	8b b3       	in	r24, 0x1b	; 27
- 14c:	8f 7b       	andi	r24, 0xBF	; 191
- 14e:	8b bb       	out	0x1b, r24	; 27
- 150:	8f ec       	ldi	r24, 0xCF	; 207
- 152:	97 e0       	ldi	r25, 0x07	; 7
- 154:	01 97       	sbiw	r24, 0x01	; 1
- 156:	f1 f7       	brne	.-4      	; 0x154 <lcd_flush+0x1c>
- 158:	00 c0       	rjmp	.+0      	; 0x15a <lcd_flush+0x22>
- 15a:	00 00       	nop
- 15c:	08 95       	ret
+ 1aa:	8b b3       	in	r24, 0x1b	; 27
+ 1ac:	8f 7b       	andi	r24, 0xBF	; 191
+ 1ae:	8b bb       	out	0x1b, r24	; 27
+ 1b0:	8f ec       	ldi	r24, 0xCF	; 207
+ 1b2:	97 e0       	ldi	r25, 0x07	; 7
+ 1b4:	01 97       	sbiw	r24, 0x01	; 1
+ 1b6:	f1 f7       	brne	.-4      	; 0x1b4 <lcd_flush+0x1c>
+ 1b8:	00 c0       	rjmp	.+0      	; 0x1ba <lcd_flush+0x22>
+ 1ba:	00 00       	nop
+ 1bc:	08 95       	ret
 
 Disassembly of section .text.init:
 
-000000f6 <init>:
-	lcd_flush();
+0000011e <init>:
+	_delay_ms(2);
 	lcd_write_command (0x80);	//Cursor terug naar start
-	lcd_flush();
+	//lcd_flush();
 }
 
 void init() {
-  f6:	cf 93       	push	r28
+ 11e:	cf 93       	push	r28
+	DDRC = 0xFF;			// PORTD(7) output, PORTD(6:0) input
+ 120:	8f ef       	ldi	r24, 0xFF	; 255
+ 122:	84 bb       	out	0x14, r24	; 20
+	PORTC = 0xFF;
+ 124:	85 bb       	out	0x15, r24	; 21
 	// PORTC output mode and all low (also E and RS pin)
 	DDRD = 0xFF;
-  f8:	8f ef       	ldi	r24, 0xFF	; 255
-  fa:	81 bb       	out	0x11, r24	; 17
+ 126:	81 bb       	out	0x11, r24	; 17
 	DDRA = 0xFF;
-  fc:	8a bb       	out	0x1a, r24	; 26
+ 128:	8a bb       	out	0x1a, r24	; 26
 	PORTC = 0x00;
-  fe:	15 ba       	out	0x15, r1	; 21
+ 12a:	15 ba       	out	0x15, r1	; 21
 	PORTA = 0x00;
- 100:	1b ba       	out	0x1b, r1	; 27
+ 12c:	1b ba       	out	0x1b, r1	; 27
 	//PORTA = 0xFF;
 
 	// Step 2 (table 12)
 	PORTC = 0x20;	// function set
- 102:	c0 e2       	ldi	r28, 0x20	; 32
- 104:	c5 bb       	out	0x15, r28	; 21
+ 12e:	c0 e2       	ldi	r28, 0x20	; 32
+ 130:	c5 bb       	out	0x15, r28	; 21
 	lcd_flush();
- 106:	0e 94 9c 00 	call	0x138	; 0x138 <lcd_flush>
+ 132:	0e 94 cc 00 	call	0x198	; 0x198 <lcd_flush>
 
 	// Step 3 (table 12)
 	PORTC = 0x20;   // function set
- 10a:	c5 bb       	out	0x15, r28	; 21
+ 136:	c5 bb       	out	0x15, r28	; 21
 	lcd_flush();
- 10c:	0e 94 9c 00 	call	0x138	; 0x138 <lcd_flush>
+ 138:	0e 94 cc 00 	call	0x198	; 0x198 <lcd_flush>
 	PORTC = 0x80;
- 110:	80 e8       	ldi	r24, 0x80	; 128
- 112:	85 bb       	out	0x15, r24	; 21
+ 13c:	80 e8       	ldi	r24, 0x80	; 128
+ 13e:	85 bb       	out	0x15, r24	; 21
 	lcd_flush();
- 114:	0e 94 9c 00 	call	0x138	; 0x138 <lcd_flush>
+ 140:	0e 94 cc 00 	call	0x198	; 0x198 <lcd_flush>
 
 	// Step 4 (table 12)
 	PORTC = 0x00;   // Display on/off control
- 118:	15 ba       	out	0x15, r1	; 21
+ 144:	15 ba       	out	0x15, r1	; 21
 	lcd_flush();
- 11a:	0e 94 9c 00 	call	0x138	; 0x138 <lcd_flush>
+ 146:	0e 94 cc 00 	call	0x198	; 0x198 <lcd_flush>
 	PORTC = 0xF0;
- 11e:	80 ef       	ldi	r24, 0xF0	; 240
- 120:	85 bb       	out	0x15, r24	; 21
+ 14a:	80 ef       	ldi	r24, 0xF0	; 240
+ 14c:	85 bb       	out	0x15, r24	; 21
 	lcd_flush();
- 122:	0e 94 9c 00 	call	0x138	; 0x138 <lcd_flush>
+ 14e:	0e 94 cc 00 	call	0x198	; 0x198 <lcd_flush>
 
 	// Step 4 (table 12)
 	PORTC = 0x00;   // Entry mode set
- 126:	15 ba       	out	0x15, r1	; 21
+ 152:	15 ba       	out	0x15, r1	; 21
 	lcd_flush();
- 128:	0e 94 9c 00 	call	0x138	; 0x138 <lcd_flush>
+ 154:	0e 94 cc 00 	call	0x198	; 0x198 <lcd_flush>
 	PORTC = 0x60;
- 12c:	80 e6       	ldi	r24, 0x60	; 96
- 12e:	85 bb       	out	0x15, r24	; 21
+ 158:	80 e6       	ldi	r24, 0x60	; 96
+ 15a:	85 bb       	out	0x15, r24	; 21
 	lcd_flush();
- 130:	0e 94 9c 00 	call	0x138	; 0x138 <lcd_flush>
+ 15c:	0e 94 cc 00 	call	0x198	; 0x198 <lcd_flush>
 }
- 134:	cf 91       	pop	r28
- 136:	08 95       	ret
+ 160:	cf 91       	pop	r28
+ 162:	08 95       	ret
 
 Disassembly of section .text.lcd_write_command:
 
-0000015e <lcd_write_command>:
+000001be <lcd_write_command>:
 	for(;*str; str++){
 		lcd_write_data(*str);
 	}
 }
 
 void lcd_write_command(unsigned char byte) {
- 15e:	cf 93       	push	r28
- 160:	c8 2f       	mov	r28, r24
+ 1be:	cf 93       	push	r28
+ 1c0:	c8 2f       	mov	r28, r24
 	// First nibble.
 	PORTC = byte;
- 162:	85 bb       	out	0x15, r24	; 21
+ 1c2:	85 bb       	out	0x15, r24	; 21
 	PORTA &= ~(1<<LCD_RS);
- 164:	8b b3       	in	r24, 0x1b	; 27
- 166:	8f 7e       	andi	r24, 0xEF	; 239
- 168:	8b bb       	out	0x1b, r24	; 27
+ 1c4:	8b b3       	in	r24, 0x1b	; 27
+ 1c6:	8f 7e       	andi	r24, 0xEF	; 239
+ 1c8:	8b bb       	out	0x1b, r24	; 27
 	lcd_flush();
- 16a:	0e 94 9c 00 	call	0x138	; 0x138 <lcd_flush>
+ 1ca:	0e 94 cc 00 	call	0x198	; 0x198 <lcd_flush>
 
 	// Second nibble
 	PORTC = (byte<<4);
- 16e:	c2 95       	swap	r28
- 170:	c0 7f       	andi	r28, 0xF0	; 240
- 172:	c5 bb       	out	0x15, r28	; 21
+ 1ce:	c2 95       	swap	r28
+ 1d0:	c0 7f       	andi	r28, 0xF0	; 240
+ 1d2:	c5 bb       	out	0x15, r28	; 21
 	PORTA &= ~(1<<LCD_RS);
- 174:	8b b3       	in	r24, 0x1b	; 27
- 176:	8f 7e       	andi	r24, 0xEF	; 239
- 178:	8b bb       	out	0x1b, r24	; 27
+ 1d4:	8b b3       	in	r24, 0x1b	; 27
+ 1d6:	8f 7e       	andi	r24, 0xEF	; 239
+ 1d8:	8b bb       	out	0x1b, r24	; 27
 	lcd_flush();
- 17a:	0e 94 9c 00 	call	0x138	; 0x138 <lcd_flush>
+ 1da:	0e 94 cc 00 	call	0x198	; 0x198 <lcd_flush>
 }
- 17e:	cf 91       	pop	r28
- 180:	08 95       	ret
+ 1de:	cf 91       	pop	r28
+ 1e0:	08 95       	ret
 
 Disassembly of section .text.clear_display:
 
-000001fa <clear_display>:
+00000244 <clear_display>:
 	PORTA &= ~(1<<LCD_E);  	// E low
 	_delay_ms(1);					
 }
 
 void clear_display() {
 	lcd_write_command (0x01);						//Leeg display
- 1fa:	81 e0       	ldi	r24, 0x01	; 1
- 1fc:	0e 94 af 00 	call	0x15e	; 0x15e <lcd_write_command>
-	lcd_flush();
- 200:	0e 94 9c 00 	call	0x138	; 0x138 <lcd_flush>
+ 244:	81 e0       	ldi	r24, 0x01	; 1
+ 246:	0e 94 df 00 	call	0x1be	; 0x1be <lcd_write_command>
+ 24a:	8f e9       	ldi	r24, 0x9F	; 159
+ 24c:	9f e0       	ldi	r25, 0x0F	; 15
+ 24e:	01 97       	sbiw	r24, 0x01	; 1
+ 250:	f1 f7       	brne	.-4      	; 0x24e <clear_display+0xa>
+ 252:	00 c0       	rjmp	.+0      	; 0x254 <clear_display+0x10>
+ 254:	00 00       	nop
+	//lcd_flush();
+	_delay_ms(2);
 	lcd_write_command (0x80);	//Cursor terug naar start
- 204:	80 e8       	ldi	r24, 0x80	; 128
- 206:	0e 94 af 00 	call	0x15e	; 0x15e <lcd_write_command>
-	lcd_flush();
- 20a:	0e 94 9c 00 	call	0x138	; 0x138 <lcd_flush>
- 20e:	08 95       	ret
+ 256:	80 e8       	ldi	r24, 0x80	; 128
+ 258:	0e 94 df 00 	call	0x1be	; 0x1be <lcd_write_command>
+ 25c:	08 95       	ret
 
 Disassembly of section .text.lcd_write_data:
 
-00000182 <lcd_write_data>:
+000001e2 <lcd_write_data>:
 	PORTC = (byte<<4);
 	PORTA &= ~(1<<LCD_RS);
 	lcd_flush();
 }
 
 void lcd_write_data(unsigned char byte) {
- 182:	cf 93       	push	r28
- 184:	c8 2f       	mov	r28, r24
+ 1e2:	cf 93       	push	r28
+ 1e4:	c8 2f       	mov	r28, r24
 	// First nibble.
 	PORTC = byte;
- 186:	85 bb       	out	0x15, r24	; 21
+ 1e6:	85 bb       	out	0x15, r24	; 21
 	PORTA |= (1<<LCD_RS);
- 188:	8b b3       	in	r24, 0x1b	; 27
- 18a:	80 61       	ori	r24, 0x10	; 16
- 18c:	8b bb       	out	0x1b, r24	; 27
+ 1e8:	8b b3       	in	r24, 0x1b	; 27
+ 1ea:	80 61       	ori	r24, 0x10	; 16
+ 1ec:	8b bb       	out	0x1b, r24	; 27
 	lcd_flush();
- 18e:	0e 94 9c 00 	call	0x138	; 0x138 <lcd_flush>
+ 1ee:	0e 94 cc 00 	call	0x198	; 0x198 <lcd_flush>
 
 	// Second nibble
 	PORTC = (byte<<4);
- 192:	c2 95       	swap	r28
- 194:	c0 7f       	andi	r28, 0xF0	; 240
- 196:	c5 bb       	out	0x15, r28	; 21
+ 1f2:	c2 95       	swap	r28
+ 1f4:	c0 7f       	andi	r28, 0xF0	; 240
+ 1f6:	c5 bb       	out	0x15, r28	; 21
 	PORTA |= (1<<LCD_RS);
- 198:	8b b3       	in	r24, 0x1b	; 27
- 19a:	80 61       	ori	r24, 0x10	; 16
- 19c:	8b bb       	out	0x1b, r24	; 27
+ 1f8:	8b b3       	in	r24, 0x1b	; 27
+ 1fa:	80 61       	ori	r24, 0x10	; 16
+ 1fc:	8b bb       	out	0x1b, r24	; 27
 	lcd_flush();
- 19e:	0e 94 9c 00 	call	0x138	; 0x138 <lcd_flush>
+ 1fe:	0e 94 cc 00 	call	0x198	; 0x198 <lcd_flush>
 }
- 1a2:	cf 91       	pop	r28
- 1a4:	08 95       	ret
+ 202:	cf 91       	pop	r28
+ 204:	08 95       	ret
 
 Disassembly of section .text.display_text:
 
-000001e0 <display_text>:
+0000025e <display_text>:
 	lcd_flush();
 }
 
 
 
 void display_text(char *str){
- 1e0:	cf 93       	push	r28
- 1e2:	df 93       	push	r29
- 1e4:	ec 01       	movw	r28, r24
+ 25e:	cf 93       	push	r28
+ 260:	df 93       	push	r29
+ 262:	ec 01       	movw	r28, r24
 	for(;*str; str++){
- 1e6:	03 c0       	rjmp	.+6      	; 0x1ee <display_text+0xe>
+ 264:	03 c0       	rjmp	.+6      	; 0x26c <display_text+0xe>
 		lcd_write_data(*str);
- 1e8:	0e 94 c1 00 	call	0x182	; 0x182 <lcd_write_data>
+ 266:	0e 94 f1 00 	call	0x1e2	; 0x1e2 <lcd_write_data>
 }
 
 
 
 void display_text(char *str){
 	for(;*str; str++){
- 1ec:	21 96       	adiw	r28, 0x01	; 1
- 1ee:	88 81       	ld	r24, Y
- 1f0:	81 11       	cpse	r24, r1
- 1f2:	fa cf       	rjmp	.-12     	; 0x1e8 <display_text+0x8>
+ 26a:	21 96       	adiw	r28, 0x01	; 1
+ 26c:	88 81       	ld	r24, Y
+ 26e:	81 11       	cpse	r24, r1
+ 270:	fa cf       	rjmp	.-12     	; 0x266 <display_text+0x8>
 		lcd_write_data(*str);
 	}
 }
- 1f4:	df 91       	pop	r29
- 1f6:	cf 91       	pop	r28
- 1f8:	08 95       	ret
+ 272:	df 91       	pop	r29
+ 274:	cf 91       	pop	r28
+ 276:	08 95       	ret
+
+Disassembly of section .text.set_cursor:
+
+0000028e <set_cursor>:
+	PORTA |= (1<<LCD_RS);
+	lcd_flush();
+}
+
+void set_cursor(int position){
+	lcd_write_command(128+position);
+ 28e:	80 58       	subi	r24, 0x80	; 128
+ 290:	0e 94 df 00 	call	0x1be	; 0x1be <lcd_write_command>
+ 294:	08 95       	ret
 
 Disassembly of section .text.wait:
 
-000001a6 <wait>:
+00000226 <wait>:
 #include <util/delay.h>
 #include <avr/interrupt.h>
 #include "lcd.h"
 
 void wait( int ms ) {
 	for (int i=0; i<ms; i++) {
- 1a6:	20 e0       	ldi	r18, 0x00	; 0
- 1a8:	30 e0       	ldi	r19, 0x00	; 0
- 1aa:	08 c0       	rjmp	.+16     	; 0x1bc <wait+0x16>
- 1ac:	e9 ef       	ldi	r30, 0xF9	; 249
- 1ae:	f0 e0       	ldi	r31, 0x00	; 0
- 1b0:	31 97       	sbiw	r30, 0x01	; 1
- 1b2:	f1 f7       	brne	.-4      	; 0x1b0 <wait+0xa>
- 1b4:	00 c0       	rjmp	.+0      	; 0x1b6 <wait+0x10>
- 1b6:	00 00       	nop
- 1b8:	2f 5f       	subi	r18, 0xFF	; 255
- 1ba:	3f 4f       	sbci	r19, 0xFF	; 255
- 1bc:	28 17       	cp	r18, r24
- 1be:	39 07       	cpc	r19, r25
- 1c0:	ac f3       	brlt	.-22     	; 0x1ac <wait+0x6>
+ 226:	20 e0       	ldi	r18, 0x00	; 0
+ 228:	30 e0       	ldi	r19, 0x00	; 0
+ 22a:	08 c0       	rjmp	.+16     	; 0x23c <wait+0x16>
+ 22c:	ef ec       	ldi	r30, 0xCF	; 207
+ 22e:	f7 e0       	ldi	r31, 0x07	; 7
+ 230:	31 97       	sbiw	r30, 0x01	; 1
+ 232:	f1 f7       	brne	.-4      	; 0x230 <wait+0xa>
+ 234:	00 c0       	rjmp	.+0      	; 0x236 <wait+0x10>
+ 236:	00 00       	nop
+ 238:	2f 5f       	subi	r18, 0xFF	; 255
+ 23a:	3f 4f       	sbci	r19, 0xFF	; 255
+ 23c:	28 17       	cp	r18, r24
+ 23e:	39 07       	cpc	r19, r25
+ 240:	ac f3       	brlt	.-22     	; 0x22c <wait+0x6>
 		_delay_ms( 1 );		// library function (max 30 ms at 8MHz)
 	}
 }
- 1c2:	08 95       	ret
+ 242:	08 95       	ret
 
 Disassembly of section .text.main:
 
-000000aa <main>:
+000000a4 <main>:
 
 int main(void)
 {
-  aa:	cf 93       	push	r28
-  ac:	df 93       	push	r29
-  ae:	00 d0       	rcall	.+0      	; 0xb0 <main+0x6>
-  b0:	00 d0       	rcall	.+0      	; 0xb2 <main+0x8>
-  b2:	00 d0       	rcall	.+0      	; 0xb4 <main+0xa>
-  b4:	cd b7       	in	r28, 0x3d	; 61
-  b6:	de b7       	in	r29, 0x3e	; 62
+  a4:	cf 93       	push	r28
+  a6:	df 93       	push	r29
+  a8:	1f 92       	push	r1
+  aa:	cd b7       	in	r28, 0x3d	; 61
+  ac:	de b7       	in	r29, 0x3e	; 62
 	init();
-  b8:	0e 94 7b 00 	call	0xf6	; 0xf6 <init>
+  ae:	0e 94 8f 00 	call	0x11e	; 0x11e <init>
+  b2:	8f e1       	ldi	r24, 0x1F	; 31
+  b4:	9e e4       	ldi	r25, 0x4E	; 78
+  b6:	01 97       	sbiw	r24, 0x01	; 1
+  b8:	f1 f7       	brne	.-4      	; 0xb6 <main+0x12>
+  ba:	00 c0       	rjmp	.+0      	; 0xbc <main+0x18>
+  bc:	00 00       	nop
 	
-	wait(10);
-  bc:	8a e0       	ldi	r24, 0x0A	; 10
-  be:	90 e0       	ldi	r25, 0x00	; 0
-  c0:	0e 94 d3 00 	call	0x1a6	; 0x1a6 <wait>
+	//wait(10);
+	_delay_ms(10);
 	
 	clear_display();
-  c4:	0e 94 fd 00 	call	0x1fa	; 0x1fa <clear_display>
+  be:	0e 94 22 01 	call	0x244	; 0x244 <clear_display>
+  c2:	8f e3       	ldi	r24, 0x3F	; 63
+  c4:	9c e9       	ldi	r25, 0x9C	; 156
+  c6:	01 97       	sbiw	r24, 0x01	; 1
+  c8:	f1 f7       	brne	.-4      	; 0xc6 <main+0x22>
+  ca:	00 c0       	rjmp	.+0      	; 0xcc <main+0x28>
+  cc:	00 00       	nop
+  ce:	8f e3       	ldi	r24, 0x3F	; 63
+  d0:	9c e9       	ldi	r25, 0x9C	; 156
+  d2:	01 97       	sbiw	r24, 0x01	; 1
+  d4:	f1 f7       	brne	.-4      	; 0xd2 <main+0x2e>
+  d6:	00 c0       	rjmp	.+0      	; 0xd8 <main+0x34>
+  d8:	00 00       	nop
 	
-	char text[] = "hello";
-  c8:	24 ea       	ldi	r18, 0xA4	; 164
-  ca:	30 e0       	ldi	r19, 0x00	; 0
-  cc:	40 e0       	ldi	r20, 0x00	; 0
-  ce:	86 e0       	ldi	r24, 0x06	; 6
-  d0:	f9 01       	movw	r30, r18
-  d2:	de 01       	movw	r26, r28
-  d4:	11 96       	adiw	r26, 0x01	; 1
-  d6:	74 2f       	mov	r23, r20
-  d8:	0e 94 e2 00 	call	0x1c4	; 0x1c4 <__movmemx_qi>
-	display_text(text);
-  dc:	ce 01       	movw	r24, r28
-  de:	01 96       	adiw	r24, 0x01	; 1
-  e0:	0e 94 f0 00 	call	0x1e0	; 0x1e0 <display_text>
+	_delay_ms(20);
 	
+	//char text[] = "";
+	//display_text(text);
+	int number = 0;
+  da:	00 e0       	ldi	r16, 0x00	; 0
+  dc:	10 e0       	ldi	r17, 0x00	; 0
+	_delay_ms(20);
+
 	
     while(1)
     {
         PORTC ^= (1<<0);	// Toggle PORTD.7
-  e4:	95 b3       	in	r25, 0x15	; 21
-  e6:	81 e0       	ldi	r24, 0x01	; 1
-  e8:	89 27       	eor	r24, r25
-  ea:	85 bb       	out	0x15, r24	; 21
+  de:	95 b3       	in	r25, 0x15	; 21
+  e0:	81 e0       	ldi	r24, 0x01	; 1
+  e2:	89 27       	eor	r24, r25
+  e4:	85 bb       	out	0x15, r24	; 21
+		set_cursor(2);
+  e6:	82 e0       	ldi	r24, 0x02	; 2
+  e8:	90 e0       	ldi	r25, 0x00	; 0
+  ea:	0e 94 47 01 	call	0x28e	; 0x28e <set_cursor>
+    } else if (__radix < 2 || __radix > 36) {
+	*__s = 0;
+	return __s;
+    } else {
+	extern char *__itoa_ncheck (int, char *, unsigned char);
+	return __itoa_ncheck (__val, __s, __radix);
+  ee:	4a e0       	ldi	r20, 0x0A	; 10
+  f0:	be 01       	movw	r22, r28
+  f2:	6f 5f       	subi	r22, 0xFF	; 255
+  f4:	7f 4f       	sbci	r23, 0xFF	; 255
+  f6:	c8 01       	movw	r24, r16
+  f8:	0e 94 3c 01 	call	0x278	; 0x278 <__itoa_ncheck>
+		itoa(number, text, 10);
 		wait( 250 );
-  ec:	8a ef       	ldi	r24, 0xFA	; 250
-  ee:	90 e0       	ldi	r25, 0x00	; 0
-  f0:	0e 94 d3 00 	call	0x1a6	; 0x1a6 <wait>
-  f4:	f7 cf       	rjmp	.-18     	; 0xe4 <main+0x3a>
+  fc:	8a ef       	ldi	r24, 0xFA	; 250
+  fe:	90 e0       	ldi	r25, 0x00	; 0
+ 100:	0e 94 13 01 	call	0x226	; 0x226 <wait>
+		display_text(text);
+ 104:	ce 01       	movw	r24, r28
+ 106:	01 96       	adiw	r24, 0x01	; 1
+ 108:	0e 94 2f 01 	call	0x25e	; 0x25e <display_text>
+		wait( 250 );
+ 10c:	8a ef       	ldi	r24, 0xFA	; 250
+ 10e:	90 e0       	ldi	r25, 0x00	; 0
+ 110:	0e 94 13 01 	call	0x226	; 0x226 <wait>
 
-Disassembly of section .text.libgcc:
+		clear_display();
+ 114:	0e 94 22 01 	call	0x244	; 0x244 <clear_display>
 
-000001c4 <__movmemx_qi>:
- 1c4:	99 27       	eor	r25, r25
+		number++;
+ 118:	0f 5f       	subi	r16, 0xFF	; 255
+ 11a:	1f 4f       	sbci	r17, 0xFF	; 255
+ 11c:	e0 cf       	rjmp	.-64     	; 0xde <main+0x3a>
 
-000001c6 <__movmemx_hi>:
- 1c6:	77 fd       	sbrc	r23, 7
- 1c8:	06 c0       	rjmp	.+12     	; 0x1d6 <__movmemx_hi+0x10>
- 1ca:	7b bf       	out	0x3b, r23	; 59
- 1cc:	07 90       	elpm	r0, Z+
- 1ce:	0d 92       	st	X+, r0
- 1d0:	01 97       	sbiw	r24, 0x01	; 1
- 1d2:	e1 f7       	brne	.-8      	; 0x1cc <__movmemx_hi+0x6>
- 1d4:	08 95       	ret
- 1d6:	01 90       	ld	r0, Z+
- 1d8:	0d 92       	st	X+, r0
- 1da:	01 97       	sbiw	r24, 0x01	; 1
- 1dc:	e1 f7       	brne	.-8      	; 0x1d6 <__movmemx_hi+0x10>
- 1de:	08 95       	ret
+Disassembly of section .text.avrlibc:
+
+00000278 <__itoa_ncheck>:
+ 278:	bb 27       	eor	r27, r27
+ 27a:	4a 30       	cpi	r20, 0x0A	; 10
+ 27c:	31 f4       	brne	.+12     	; 0x28a <__itoa_ncheck+0x12>
+ 27e:	99 23       	and	r25, r25
+ 280:	22 f4       	brpl	.+8      	; 0x28a <__itoa_ncheck+0x12>
+ 282:	bd e2       	ldi	r27, 0x2D	; 45
+ 284:	90 95       	com	r25
+ 286:	81 95       	neg	r24
+ 288:	9f 4f       	sbci	r25, 0xFF	; 255
+ 28a:	0c 94 b3 00 	jmp	0x166	; 0x166 <__utoa_common>
+
+Disassembly of section .text.avrlibc:
+
+00000164 <__utoa_ncheck>:
+ 164:	bb 27       	eor	r27, r27
+
+00000166 <__utoa_common>:
+ 166:	fb 01       	movw	r30, r22
+ 168:	55 27       	eor	r21, r21
+ 16a:	aa 27       	eor	r26, r26
+ 16c:	88 0f       	add	r24, r24
+ 16e:	99 1f       	adc	r25, r25
+ 170:	aa 1f       	adc	r26, r26
+ 172:	a4 17       	cp	r26, r20
+ 174:	10 f0       	brcs	.+4      	; 0x17a <__utoa_common+0x14>
+ 176:	a4 1b       	sub	r26, r20
+ 178:	83 95       	inc	r24
+ 17a:	50 51       	subi	r21, 0x10	; 16
+ 17c:	b9 f7       	brne	.-18     	; 0x16c <__utoa_common+0x6>
+ 17e:	a0 5d       	subi	r26, 0xD0	; 208
+ 180:	aa 33       	cpi	r26, 0x3A	; 58
+ 182:	08 f0       	brcs	.+2      	; 0x186 <__utoa_common+0x20>
+ 184:	a9 5d       	subi	r26, 0xD9	; 217
+ 186:	a1 93       	st	Z+, r26
+ 188:	00 97       	sbiw	r24, 0x00	; 0
+ 18a:	79 f7       	brne	.-34     	; 0x16a <__utoa_common+0x4>
+ 18c:	b1 11       	cpse	r27, r1
+ 18e:	b1 93       	st	Z+, r27
+ 190:	11 92       	st	Z+, r1
+ 192:	cb 01       	movw	r24, r22
+ 194:	0c 94 03 01 	jmp	0x206	; 0x206 <strrev>
+
+Disassembly of section .text.avrlibc:
+
+00000206 <strrev>:
+ 206:	dc 01       	movw	r26, r24
+ 208:	fc 01       	movw	r30, r24
+ 20a:	67 2f       	mov	r22, r23
+ 20c:	71 91       	ld	r23, Z+
+ 20e:	77 23       	and	r23, r23
+ 210:	e1 f7       	brne	.-8      	; 0x20a <strrev+0x4>
+ 212:	32 97       	sbiw	r30, 0x02	; 2
+ 214:	04 c0       	rjmp	.+8      	; 0x21e <strrev+0x18>
+ 216:	7c 91       	ld	r23, X
+ 218:	6d 93       	st	X+, r22
+ 21a:	70 83       	st	Z, r23
+ 21c:	62 91       	ld	r22, -Z
+ 21e:	ae 17       	cp	r26, r30
+ 220:	bf 07       	cpc	r27, r31
+ 222:	c8 f3       	brcs	.-14     	; 0x216 <strrev+0x10>
+ 224:	08 95       	ret

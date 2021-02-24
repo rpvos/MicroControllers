@@ -1,4 +1,6 @@
 main.d main.o: .././main.c \
+ c:\program\ files\microchip\xc8\v2.31\avr\avr\include\stdlib.h \
+ c:\program\ files\microchip\xc8\v2.31\avr\lib\gcc\avr\5.4.0\include\stddef.h \
  c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\io.h \
  c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\sfr_defs.h \
  c:\program\ files\microchip\xc8\v2.31\avr\avr\include\inttypes.h \
@@ -15,6 +17,10 @@ main.d main.o: .././main.c \
  c:\program\ files\microchip\xc8\v2.31\avr\avr\include\math.h \
  c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\interrupt.h \
  .././lcd.h
+
+c:\program\ files\microchip\xc8\v2.31\avr\avr\include\stdlib.h:
+
+c:\program\ files\microchip\xc8\v2.31\avr\lib\gcc\avr\5.4.0\include\stddef.h:
 
 c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\io.h:
 

@@ -15,13 +15,13 @@
 #define LCD_E 	6  // RA6 UNI-6
 #define LCD_RS	4  // RA4 UNI-6
 	
-void lcd_flush();
-void clear_display();
+void lcd_flush(void);
+void clear_display(void);
 void lcd_write_command(unsigned char byte);
 void lcd_write_data(unsigned char byte);
 void set_cursor(int position);
 void display_text(char *str);
-void init();
+void init(void);
 
 
 void lcd_flush(void) {
@@ -33,12 +33,15 @@ void lcd_flush(void) {
 
 void clear_display() {
 	lcd_write_command (0x01);						//Leeg display
-	lcd_flush();
+	//lcd_flush();
+	_delay_ms(2);
 	lcd_write_command (0x80);	//Cursor terug naar start
-	lcd_flush();
+	//lcd_flush();
 }
 
 void init() {
+	DDRC = 0xFF;			// PORTD(7) output, PORTD(6:0) input
+	PORTC = 0xFF;
 	// PORTC output mode and all low (also E and RS pin)
 	DDRD = 0xFF;
 	DDRA = 0xFF;
