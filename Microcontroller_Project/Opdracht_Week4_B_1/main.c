@@ -1,3 +1,21 @@
+/*
+ * Project name:
+     Demo4_1 : Free running AD conversion on channel 1, PORTF.1
+ * Author: Avans-TI, JW
+ * Revision History: 
+     20101229: - initial release;
+ * Description:
+     This program gives an interrupt on each ms
+ * Test configuration:
+     MCU:             ATmega128
+     Dev.Board:       BIGAVR6
+     Oscillator:      External Clock 08.0000 MHz
+     Ext. Modules:    -
+     SW:              AVR-GCC
+ * NOTES:
+     - Turn ON the PORT LEDs at SW12.1 - SW12.8
+*/
+#define F_CPU 8000000UL
 #include <avr/io.h>
 #include <util/delay.h>
 #include <avr/interrupt.h>
@@ -27,7 +45,7 @@ void adcInit( void )
 int main( void )
 {
 	DDRF = 0x00;				// set PORTF for input (ADC)
-	DDRA = 0xFF;				// set PORTA for output
+	DDRA = 0xFF;				// set PORTA for output 
 	DDRB = 0xFF;				// set PORTB for output
 	adcInit();					// initialize ADC
 
