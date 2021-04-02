@@ -1,13 +1,16 @@
+#define F_CPU 8e6
+
 #include <avr/sfr_defs.h>
 #include <avr/io.h>
 #include <util/delay.h>
 #include <avr/interrupt.h>
-
-#define F_CPU 8e6
+#include <stddef.h>
 
 #define setbit(port,bit)  ((port) |=  (1<<bit)) // set bit
 #define clrbit(port,bit)  ((port) &= ~(1<<bit)) // clear bit
 #define BIT(x)			(1 << (x))
+#define  BASELENGTH 300
+#define END_WAIT_LENGTH -1
 
 #define REF_AVCC (1<<REFS0)  // reference = AVCC = 5 V
 #define REF_INT  (1<<REFS0)|(1<<REFS1) // internal reference 2.56 V
@@ -20,15 +23,43 @@ volatile int Frequency = 100;
 volatile int DutyCycle = 50;
 int high = 0;
 
-struct tone{
-	int frequency,
+typedef struct tone_t{
+	int frequency;
 	int waitLength;
-	};
+} tone;
 
+
+ tone A ={.frequency = 440, .waitLength = BASELENGTH};
+ tone B ={.frequency = 495,.waitLength = BASELENGTH};
+ tone C ={.frequency = 528,.waitLength = BASELENGTH};
+ tone D ={.frequency = 594,.waitLength = BASELENGTH};
+ tone E ={.frequency = 660,.waitLength = BASELENGTH};
+ tone F ={.frequency = 704,.waitLength = BASELENGTH};
+ tone G = {.frequency = 792,.waitLength = BASELENGTH};
+ tone X = {.frequency = -1,.waitLength = BASELENGTH};
+ tone ending = {.frequency = -1,.waitLength = END_WAIT_LENGTH};
 
 void wait( int ms ) {
 	for (int tms=0; tms<ms; tms++) {
 		_delay_ms( 1 );			// library function (max 30 ms at 8MHz)
+	}
+}
+
+void playSong(tone Song[],int timeBetweenTones){
+	DutyCycle = 20;
+	int size = 50;
+	
+	for (int i = 0;i<size;i++)
+	{
+		if (Song[i].waitLength == END_WAIT_LENGTH)
+		{
+			return;
+		}
+		Frequency = Song[i].frequency;
+		wait( Song[i].waitLength);
+		
+		Frequency = -1;
+		wait(timeBetweenTones);
 	}
 }
 
@@ -41,8 +72,9 @@ uint16_t adc_read(uint8_t channel)
 }
 
 ISR( TIMER1_COMPA_vect ) {
-	if(!buzzerOn)
+	if(!buzzerOn || Frequency == -1)
 		return;
+		
 	
 	if (high)
 	{
@@ -99,6 +131,8 @@ int main(void)
 	initInterrupt();
 	sei();					// turn on all interrupts
 	
+	tone vaderJacob[] = {C,D,E,C,C,D,E,C,E,F,G,X,E,F,G,X,G,A,G,F,E,C,G,A,G,F,E,C,C,G,C,X,C,G,C,ending};
+	
 	while(1)
 	{
 		if (!keyboardMode)
@@ -151,6 +185,11 @@ int main(void)
 				{
 					buzzerOn  =1;
 					Frequency = 792;
+				}
+				else if ((PINA & (1<<PA7)))
+				{
+					buzzerOn = 1;
+					playSong(vaderJacob,0);
 				}
 			_delay_ms(10);
 		}
