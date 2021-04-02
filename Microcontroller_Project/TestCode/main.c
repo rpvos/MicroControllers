@@ -5,7 +5,6 @@
 
 #define F_CPU 8e6
 
-
 #define setbit(port,bit)  ((port) |=  (1<<bit)) // set bit
 #define clrbit(port,bit)  ((port) &= ~(1<<bit)) // clear bit
 #define BIT(x)			(1 << (x))
@@ -15,6 +14,17 @@
 
 // global variables
 uint16_t adc_value0, adc_value1, adc_value2, adc_value3, adc_value4, adc_value5;
+int keyboardMode = 0;
+int buzzerOn = 1;
+volatile int Frequency = 100;
+volatile int DutyCycle = 50;
+int high = 0;
+
+struct tone{
+	int frequency,
+	int waitLength;
+	};
+
 
 void wait( int ms ) {
 	for (int tms=0; tms<ms; tms++) {
@@ -30,11 +40,10 @@ uint16_t adc_read(uint8_t channel)
 	return ADC;		
 }
 
-volatile int Frequency = 100;
-volatile int DutyCycle = 50;
-volatile int high = 0;
-
 ISR( TIMER1_COMPA_vect ) {
+	if(!buzzerOn)
+		return;
+	
 	if (high)
 	{
 		int counter = Frequency*DutyCycle/100;
@@ -58,6 +67,20 @@ ISR( TIMER1_COMPA_vect ) {
 	PORTB ^= 0x01;
 }
 
+ISR( INT0_vect ) {
+	keyboardMode = !keyboardMode;
+}
+
+void initInterrupt(){
+	// Init I/O
+	DDRD = 0xFE;
+
+	// Init Interrupt hardware
+	EICRA |= 0x03;			// INT1 falling edge, INT0 rising edge
+	EIMSK |= 0x01;			// Enable INT1 & INT0
+	
+}
+
 void timer1Init( void ) {
 	OCR1A = Frequency;	// 16-bits compare value of counter 1
 	TIMSK |= BIT(4);		// T1 compare match A interrupt enable
@@ -68,31 +91,68 @@ void timer1Init( void ) {
 
 int main(void)
 {
+	DDRA = 0x00; // PortA all inputs
 	DDRB = 0xff; // portB all outputs
 	DDRF = 0x00; // portF all inputs
 	ADCSRA = (1<<ADEN)|(1<<ADPS2)|(1<<ADPS1)|(1<<ADPS0);
 	timer1Init();
+	initInterrupt();
 	sei();					// turn on all interrupts
 	
 	while(1)
 	{
-		adc_value0 = adc_read(0);
-		double percentage = adc_value0/1024.0;
-		double waitAmount = percentage*100;
-		Frequency = waitAmount;
-		
-		
-		adc_value1 = adc_read(1);
-		percentage = adc_value1/1024.0 *100;
-		DutyCycle = percentage;
-		
-		/*
-		adc_value2 = adc_read(2);
-		adc_value3 = adc_read(3);
-		adc_value4 = adc_read(4);
-		adc_value5 = adc_read(5);
-		
-		CompareValue = adc_value0;
-		*/
+		if (!keyboardMode)
+		{
+			buzzerOn = 1;
+			adc_value0 = adc_read(0);
+			double percentage = adc_value0/1024.0;
+			double waitAmount = percentage*100;
+			Frequency = waitAmount;
+			
+			
+			adc_value1 = adc_read(1);
+			percentage = adc_value1/1024.0 *100;
+			DutyCycle = percentage;
+		}
+		else if (keyboardMode)
+		{
+			buzzerOn = 0;
+
+			if ((PINA & (1<<PA0)))
+			{
+				buzzerOn  =1;
+				Frequency = 440;		
+		}else if ((PINA & (1<<PA1)))
+		{
+			buzzerOn  =1;
+			Frequency = 495;
+		}
+		else if ((PINA & (1<<PA2)))
+		{
+			buzzerOn  =1;
+			Frequency = 528;
+		}
+		else if ((PINA & (1<<PA3)))
+		{
+			buzzerOn  =1;
+			Frequency = 594;
+		}
+		else if ((PINA & (1<<PA4)))
+		{
+			buzzerOn  =1;
+			Frequency = 660;
+		}
+			else if ((PINA & (1<<PA5)))
+			{
+				buzzerOn  = 1;
+				Frequency = 704;
+			}
+				else if ((PINA & (1<<PA6)))
+				{
+					buzzerOn  =1;
+					Frequency = 792;
+				}
+			_delay_ms(10);
+		}
 	}
 }
