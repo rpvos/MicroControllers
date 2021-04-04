@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <project>                                  
-  <executable name="Opdracht_Week1_B_6.elf">                 
+  <executable name="Opdracht_Week2_B_5.elf">                 
     <memory name="program">              
       <units>bytes</units>                 
       <length>131072</length>                 
-      <used>258</used>                     
-      <free>130814</free>                     
+      <used>690</used>                     
+      <free>130382</free>                     
     </memory>                              
     <memory name="data">                 
       <units>bytes</units>                 

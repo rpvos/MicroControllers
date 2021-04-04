@@ -31,6 +31,6 @@ int main( void ){
 			//#define F_CPU 8 e6????
 			PORTD = 0x80;			// Turn light 7 on.
 			PORTD = 0x00;			// Turn all lights off
+		}
 	}
-	return 1;
 }
