@@ -16,7 +16,8 @@ void wait( int ms ) {
 	}
 }
 
-enum LetterToSegment{
+
+typedef enum {
 	a = 0b00000001,
 	b = 0b00000010,
 	c = 0b00000100,
@@ -25,11 +26,11 @@ enum LetterToSegment{
 	f = 0b00100000,
 	g = 0b01000000,
 	h = 0b10000000,
-	};
-
-const unsigned char LightShow [] = {
-	a,b,g,e,d,c,g,f
-};
+	} LetterToSegment;
+	
+	LetterToSegment LightShow[] = {
+		a,b,g,e,d,c,g,f
+		};
 
 int main( void ) {
 	DDRC = 0b11111111;
@@ -39,9 +40,11 @@ int main( void ) {
 		int n = sizeof(LightShow)/sizeof(LightShow[0]);
 		
 		while( index < n ) {
-			enum LetterToSegment segment;
-			segment = LightShow[index];
-			PORTC = segment;
+			char lights = 0x00;
+			LetterToSegment light = LightShow[index];
+				lights ^= light;
+			
+			PORTC = lights;
 			wait(250);
 			index++;
 		}
