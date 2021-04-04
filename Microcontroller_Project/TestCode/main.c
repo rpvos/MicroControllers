@@ -131,7 +131,7 @@ int main(void)
 	initInterrupt();
 	sei();					// turn on all interrupts
 	
-	tone vaderJacob[] = {C,D,E,C,C,D,E,C,E,F,G,X,E,F,G,X,G,A,G,F,E,C,G,A,G,F,E,C,C,G,C,X,C,G,C,ending};
+	tone electronicSong[] = {C,D,E,C,C,D,E,C,E,F,G,X,E,F,G,X,G,A,G,F,E,C,G,A,G,F,E,C,C,G,C,X,C,G,C,ending};
 	
 	while(1)
 	{
@@ -189,7 +189,7 @@ int main(void)
 				else if ((PINA & (1<<PA7)))
 				{
 					buzzerOn = 1;
-					playSong(vaderJacob,0);
+					playSong(electronicSong,0);
 				}
 			_delay_ms(10);
 		}
