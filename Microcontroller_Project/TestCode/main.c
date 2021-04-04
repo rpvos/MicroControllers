@@ -96,7 +96,7 @@ ISR( TIMER1_COMPA_vect ) {
 	}
 	TCNT0 = 0;
 	high ^= 0x01;
-	PORTB ^= 0x01;
+	PORTC ^= 0x02;
 }
 
 ISR( INT0_vect ) {
@@ -125,6 +125,7 @@ int main(void)
 {
 	DDRA = 0x00; // PortA all inputs
 	DDRB = 0xff; // portB all outputs
+	DDRC = 0x02; // portC only 1 output
 	DDRF = 0x00; // portF all inputs
 	ADCSRA = (1<<ADEN)|(1<<ADPS2)|(1<<ADPS1)|(1<<ADPS0);
 	timer1Init();
