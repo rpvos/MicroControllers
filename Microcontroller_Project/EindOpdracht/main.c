@@ -114,8 +114,6 @@ ISR( TIMER1_COMPA_vect ) {
 		OCR1A = compareValue;
 		
 	}
-	// set the counter to 0
-	TCNT0 = 0;
 	// Set high to not high so we alternate high and low
 	high ^= 0x01;
 	// Set bit 1 of port C to high or low
